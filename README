@@ -1,0 +1,44 @@
+# CIC Dataset Analysis
+
+Comparative analysis of CIC-based network intrusion detection datasets for evaluating their sustainability for a machine-learning IDS project.
+
+## Current Scope
+
+Currently analyzing:
+
+- CIC-IDS2017
+
+Planned:
+
+- CSE-CIC-IDS2017
+- CIC-DDoS2019
+
+## Current Progress
+
+- [x] Environment setup
+- [x] CIC-IDS2017 Monday EDA
+- [x] CIC-IDS2017 Tuesday EDA
+- [ ] Missing value analysis
+- [ ] Duplicates analysis
+- [ ] Infinite-value analysis
+- [ ] Automated dataset profiling
+- [ ] Full CIC-IDS2017 analysis
+- [ ] CIC-IDS2018 analysis
+- [ ] CIC-DDoS2019 analysis
+- [ ] Cross-dataset comparison
+- [ ] Power BI dashboard
+- [ ] ML suitability evaluation
+
+## Project Structure
+
+```text
+dashboard/
+data/
+    raw/
+    processed/
+
+notebooks/
+src/
+results/
+src/
+```
