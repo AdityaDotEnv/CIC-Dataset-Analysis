@@ -18,10 +18,10 @@ Planned:
 - [x] Environment setup
 - [x] CIC-IDS2017 Monday EDA
 - [x] CIC-IDS2017 Tuesday EDA
-- [ ] Missing value analysis
-- [ ] Duplicates analysis
-- [ ] Infinite-value analysis
-- [ ] Automated dataset profiling
+- [x] Missing value analysis
+- [x] Duplicates analysis
+- [x] Infinite-value analysis
+- [ ] Automated dataset profiling --> ONGOING
 - [ ] Full CIC-IDS2017 analysis
 - [ ] CIC-IDS2018 analysis
 - [ ] CIC-DDoS2019 analysis
