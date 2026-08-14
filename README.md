@@ -21,8 +21,8 @@ Planned:
 - [x] Missing value analysis
 - [x] Duplicates analysis
 - [x] Infinite-value analysis
-- [ ] Automated dataset profiling --> ONGOING
-- [ ] Full CIC-IDS2017 analysis
+- [x] Automated dataset profiling
+- [ ] Full CIC-IDS2017 analysis --> ONGOING
 - [ ] CIC-IDS2018 analysis
 - [ ] CIC-DDoS2019 analysis
 - [ ] Cross-dataset comparison
