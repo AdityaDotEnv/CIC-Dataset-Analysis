@@ -1,0 +1,7 @@
+factor,finding,severity,ml_impact
+Missing values,"1,358 missing values (0.048%)",Low,Manageable through imputation
+Infinite values,Present in rate-based features,Moderate,Must be converted/handled before modelling
+Constant features,8 constant features,Low,Can be safely removed
+Duplicate records,"403,550 rows participate in duplicate groups",High,Requires explicit handling to reduce leakage risk
+Feature redundancy,Highly/perfectly correlated feature pairs exist,Moderate,Requires feature-selection consideration
+Extreme values,Heavy-tailed distributions and substantial extremes,Moderate,Requires model/transform-aware preprocessing

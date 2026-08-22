@@ -1,0 +1,2 @@
+records,original_features,original_columns,source_files,traffic_classes,benign_percentage,missing_values,missing_percentage,duplicate_occurrences,duplicate_group_rows,duplicate_groups,constant_features
+2830743,78,79,8,15,80.3,1358,0.048,308381,403550,95150,8

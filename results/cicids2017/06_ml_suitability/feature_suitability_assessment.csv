@@ -1,0 +1,6 @@
+factor,finding,severity,ml_impact
+Feature scale,Features span substantially different numerical ranges,Moderate,Scaling required for scale-sensitive models
+Skewness,Many features are strongly right-skewed,Moderate,May require transformations or robust models
+Feature redundancy,Highly correlated/perfectly correlated pairs exist,Moderate,Feature selection may reduce redundancy
+Constant features,8 features have no variance,Low,Remove during preprocessing
+Extreme observations,Large ranges and heavy tails occur in multiple features,Moderate,Requires careful preprocessing/model selection

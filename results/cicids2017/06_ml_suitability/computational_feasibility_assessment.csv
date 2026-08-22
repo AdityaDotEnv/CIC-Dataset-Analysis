@@ -1,0 +1,6 @@
+factor,finding,assessment
+Dataset size,2.83 million records,Manageable but computationally significant
+Feature dimensionality,78 original features,Moderate
+Memory requirements,Full-data operations can require substantial RAM,Careful memory management required
+Exploratory analysis,Sampling was required for some expensive distribution operations,Sampling is appropriate for visualization-heavy analysis
+ML experimentation,Full-dataset experimentation may be expensive,Use controlled subsets during initial experimentation

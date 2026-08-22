@@ -1,0 +1,5 @@
+factor,finding,severity,ml_impact
+BENIGN dominance,Approximately 80.30% of all records,High,Requires imbalance-aware evaluation
+Rare attack classes,Several classes contain extremely few observations,High,Limits reliable class-specific evaluation
+Attack imbalance,Attack categories vary substantially in size,High,Requires class-aware metrics and modelling strategy
+Class/session concentration,Some attacks are concentrated in specific source files,High,Train/test splitting must consider capture-session composition

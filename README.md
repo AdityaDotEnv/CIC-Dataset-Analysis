@@ -10,11 +10,11 @@ The project focuses on understanding **data quality, class distributions, featur
 
 Currently analyzing:
 
-- **CIC-IDS2017** — analysis in progress
+- **CIC-IDS2017** — analysis complete
+- **CIC-IDS2018** — analysis in progress
 
 Planned:
 
-- **CIC-IDS2018**
 - **CIC-DDoS2019**
 
 The final stage will compare the datasets across data quality, class balance, feature characteristics, redundancy, attack coverage, computational feasibility, and ML suitability.
@@ -50,14 +50,39 @@ The final stage will compare the datasets across data quality, class balance, fe
 - [x] Preprocessing strategy definition
 - [x] Candidate feature-set definition
 - [x] Target transformation strategy
-- [ ] ML-oriented dataset evaluation
+- [x] ML suitability evaluation
+
+### CIC-IDS2018
+
+- [x] Dataset overview
+- [x] Dataset structure and schema analysis
+- [x] Source-file inventory
+- [x] Record-count analysis
+- [x] Column and data-type analysis
+- [x] Target/label identification
+- [x] Traffic-class identification
+- [x] Per-file class distribution baseline
+- [x] Schema consistency analysis
+- [ ] Feature/data quality analysis
+- [ ] Class distribution analysis
+- [ ] Feature distribution analysis
+- [ ] Preprocessing strategy
+- [ ] ML suitability evaluation
+
+### CIC-DDoS2019
+
+- [ ] Dataset overview
+- [ ] Feature/data quality analysis
+- [ ] Class distribution analysis
+- [ ] Feature distribution analysis
+- [ ] Preprocessing strategy
+- [ ] ML suitability evaluation
 
 ### Cross-Dataset Analysis
 
-- [ ] CIC-IDS2018 analysis
-- [ ] CIC-DDoS2019 analysis
 - [ ] Cross-dataset comparison
 - [ ] Dataset suitability evaluation
+- [ ] Final dataset recommendation
 
 ### Reporting & Visualization
 
@@ -70,85 +95,56 @@ The final stage will compare the datasets across data quality, class balance, fe
 
 ## Key Findings So Far
 
-### Dataset Overview
+### CIC-IDS2017
 
 The combined CIC-IDS2017 dataset contains:
 
 - **2,830,743 records**
-- **79 original columns**
+- **79 columns**
 - **8 source files**
 - A consistent schema and column ordering across the source files
 
-Minor schema hygiene issues were identified, including leading/trailing whitespace in column names, and were normalized during analysis.
+The analysis identified:
 
-### Data Quality
+- Extremely limited missing data, with **1,358 missing values (0.048%)** in `Flow Bytes/s`.
+- Infinite values in `Flow Packets/s` and `Flow Bytes/s`.
+- **308,381 exact duplicate occurrences**.
+- **403,550 rows participating in duplicate groups**, representing **95,150 distinct duplicate groups**.
+- **8 constant features** and several near-constant features.
+- Significant feature redundancy through highly or perfectly correlated feature pairs.
+- Strongly skewed and heavy-tailed numerical features.
+- **15 traffic classes**, consisting of BENIGN and 14 attack categories.
+- BENIGN traffic representing approximately **80.30%** of the dataset.
+- Extremely rare attack classes, including **Heartbleed (11)**, **SQL Injection (21)**, and **Infiltration (36)**.
+- Attack classes concentrated within particular capture sessions/source files.
 
-The initial data-quality analysis identified several characteristics that will influence later preprocessing and modelling decisions:
+The preprocessing and ML-suitability analysis concluded that CIC-IDS2017 is:
 
-- Missing values are extremely limited, with **1,358 missing values (0.048%)** found in `Flow Bytes/s`.
-- Infinite values occur in the rate-based features `Flow Packets/s` and `Flow Bytes/s`.
-- **308,381 exact duplicate occurrences** were identified.
-- **403,550 rows participate in duplicate groups**, representing **95,150 distinct duplicate groups**.
-- **8 constant features** and several near-constant features were identified.
-- Multiple feature pairs exhibit very high or perfect correlation, indicating significant feature redundancy.
-- Several numerical features exhibit substantial skewness and extreme values.
+> **Suitable with conditions**
 
-These issues were documented during exploratory analysis rather than modified in-place. The corresponding handling strategies are defined in the preprocessing analysis.
+It provides substantial data volume, broad attack coverage, and a rich feature space, but requires careful handling of class imbalance, duplicate records, capture-session composition, feature redundancy, invalid numerical values, and computational requirements.
 
-### Class Distribution
+A naïve random train/test split is therefore not considered sufficient for reliable evaluation.
 
-The class-distribution analysis identified **15 traffic classes**: one BENIGN class and 14 attack classes.
+### CIC-IDS2018
 
-Key observations include:
+The initial dataset overview has established the structural baseline for CIC-IDS2018.
 
-- **BENIGN traffic represents approximately 80.30%** of the complete dataset.
-- Attack traffic therefore represents a substantially smaller portion of the available observations.
-- Attack classes are themselves highly imbalanced.
-- Large attack classes such as **DoS Hulk** and **PortScan** contain substantially more observations than several other attack categories.
-- Extremely rare classes include:
-  - **Heartbleed — 11 records**
-  - **SQL Injection — 21 records**
-  - **Infiltration — 36 records**
-- Attack classes are not uniformly distributed across the eight source files.
-- Several attack categories are associated with specific capture sessions rather than being consistently represented throughout the dataset.
+The analysis covers:
 
-This indicates that both **class imbalance and capture-session composition** will need to be considered when designing the eventual preprocessing, train/test strategy, and ML evaluation methodology.
+- Source-file inventory
+- Dataset size
+- Column structure
+- Data types
+- Target/label identification
+- Traffic-class identification
+- Per-file record distribution
+- Schema consistency
+- Basic schema hygiene
 
-No classes have been removed, merged, oversampled, or undersampled at this stage.
+No cleaning, transformation, class balancing, feature selection, or modelling has been performed at this stage.
 
-### Feature Distributions
-
-The feature-distribution analysis identified substantial heterogeneity across the numerical feature space:
-
-- Many numerical features exhibit **strong right-skewness and heavy-tailed distributions**.
-- Several packet-count and packet-length features have very small median values but extremely large maximum values.
-- Features such as `act_data_pkt_fwd`, `Total Backward Packets`, `Total Fwd Packets`, and packet/header-length measurements exhibit particularly strong skewness.
-- Several features contain substantial proportions of zero-valued observations.
-- IQR-based analysis identifies large numbers of extreme observations in some features; these are **not automatically considered erroneous**, since highly variable network-flow behaviour can naturally produce extreme values.
-- The distributions demonstrate substantial differences in feature scale and spread, indicating that feature-aware preprocessing and scaling will be required for subsequent ML modelling.
-
-A **reproducible 250,000-row sample (`random_state=42`)** was used for computationally intensive distribution statistics and visualizations, while exact dataset-level counts were retained where practical.
-
-No feature values or observations were modified or removed during the distribution analysis.
-
-### Preprocessing Strategy
-
-The preprocessing analysis consolidated the findings from the preceding notebooks into a documented strategy for subsequent ML preparation.
-
-Key decisions include:
-
-- **8 constant features** are candidates for removal because they provide no predictive variance.
-- Infinite values will be converted into a consistent missing-value representation before modelling.
-- Missing values will be handled through an explicit imputation strategy rather than indiscriminately dropping observations.
-- Suspicious numerical values will be reviewed according to feature semantics rather than automatically treated as errors.
-- Highly correlated features will be reviewed during feature selection rather than removed solely on the basis of correlation.
-- Exact duplicate records will be handled during final modelling-data preparation, with attention to potential train/test leakage.
-- The original **15-class target** will be preserved for multiclass evaluation.
-- A **binary BENIGN vs ATTACK target** is also defined for binary IDS evaluation.
-- Class imbalance will be addressed during model development through appropriate weighting and/or sampling strategies rather than altering the exploratory dataset.
-- Scaling will be applied according to the requirements of the eventual ML algorithms.
-
-The preprocessing notebook therefore defines the **intended preparation strategy without modifying the original CIC-IDS2017 dataset**.
+Detailed data-quality analysis will follow in the next notebook.
 
 ---
 
@@ -170,41 +166,26 @@ CIC-Dataset-Analysis/
 │   ├── 02_feature_data_quality.ipynb
 │   ├── 03_class_distribution.ipynb
 │   ├── 04_feature_distribution.ipynb
-│   └── 05_preprocessing_strategy.ipynb
+│   ├── 05_preprocessing_strategy.ipynb
+│   ├── 06_ml_suitability_evaluation.ipynb
+│   └── 07_dataset_overview_2018.ipynb
 │
 ├── results/
-│   └── cicids2017/
-│       ├── 02_feature_data_quality/
-│       │   ├── feature_quality_summary.csv
-│       │   ├── high_correlation_pairs.csv
-│       │   ├── infinite_value_summary.csv
-│       │   ├── missing_value_summary.csv
-│       │   ├── near_constant_features.csv
-│       │   └── schema_consistency_report.csv
-│       │
-│       ├── 03_class_distribution/
-│       │   ├── attack_class_distribution.csv
-│       │   ├── class_file_presence.csv
-│       │   ├── class_imbalance_summary.csv
-│       │   ├── class_presence_matrix.csv
-│       │   ├── overall_class_distribution.csv
-│       │   └── per_file_class_distribution.csv
-│       │
-│       ├── 04_feature_distribution/
-│       │   ├── feature_distribution_summary.csv
-│       │   ├── feature_percentiles.csv
-│       │   ├── feature_outlier_summary.csv
-│       │   ├── highly_skewed_features.csv
-│       │   ├── zero_dominated_features.csv
-│       │   └── feature_distribution_report.csv
-│       │
-│       └── 05_preprocessing/
-│           ├── preprocessing_decisions.csv
-│           ├── dropped_features.csv
-│           ├── candidate_features.csv
-│           ├── suspicious_features.csv
-│           ├── target_mapping.csv
-│           └── preprocessing_summary.csv
+│   ├── cicids2017/
+│   │   ├── 02_feature_data_quality/
+│   │   ├── 03_class_distribution/
+│   │   ├── 04_feature_distribution/
+│   │   ├── 05_preprocessing/
+│   │   └── 06_ml_suitability/
+│   │
+│   └── cicids2018/
+│       └── 07_dataset_overview/
+│           ├── file_inventory.csv
+│           ├── column_inventory.csv
+│           ├── dtype_report.csv
+│           ├── class_distribution.csv
+│           ├── schema_comparison.csv
+│           └── dataset_summary.csv
 │
 ├── src/
 │   ├── analysis/
@@ -222,47 +203,54 @@ CIC-Dataset-Analysis/
 
 The analysis is being developed incrementally through notebooks:
 
-Dataset Ingestion
-       │
-       ▼
-01 — Dataset Overview
-       │
-       ▼
-02 — Feature & Data Quality
-       │
-       ▼
-03 — Class Distribution
-       │
-       ▼
-04 — Feature Distribution
-       │
-       ▼
-05 — Preprocessing Strategy
-       │
-       ▼
-06 — ML Suitability Evaluation
-       │
-       ▼
-Cross-Dataset Analysis
-       │
-       ├───────────────┐
-       ▼               ▼
-Visualization       Dataset Comparison
-(Power BI /         & Final Recommendation
- Tableau)
+```
+CIC-IDS2017
+    │
+    ├── 01 Dataset Overview
+    ├── 02 Feature & Data Quality
+    ├── 03 Class Distribution
+    ├── 04 Feature Distribution
+    ├── 05 Preprocessing Strategy
+    └── 06 ML Suitability
+             │
+             ▼
+       CIC-IDS2018
+             │
+             ├── 07 Dataset Overview
+             ├── 08 Feature & Data Quality
+             ├── 09 Class Distribution
+             ├── 10 Feature Distribution
+             ├── 11 Preprocessing Strategy
+             └── 12 ML Suitability
+                     │
+                     ▼
+              CIC-DDoS2019
+                     │
+                     ▼
+             Cross-Dataset Analysis
+                     │
+                     ▼
+             Final Dataset Selection
+                     │
+                     ├───────────────┐
+                     ▼               ▼
+               Power BI /       Final IDS
+                Tableau        Dataset Recommendation
+
+```
 
 
 ## Goals
 
 The final analysis aims to answer:
 
-Which CIC dataset provides the most suitable data for an ML-based IDS?
-How severe is class imbalance across the datasets?
-How much duplication and feature redundancy exists?
-What preprocessing is required for each dataset?
-Which attack classes are sufficiently represented for meaningful modelling?
-How do the datasets differ in feature quality and usability?
-How do capture-session characteristics affect the reliability of ML evaluation?
-Which dataset provides the best balance between data quality, attack coverage, computational feasibility, and ML suitability?
+1. Which CIC dataset provides the most suitable data for an ML-based IDS?
+2. How severe is class imbalance across the datasets?
+3. How much duplication and feature redundancy exists?
+4. What preprocessing is required for each dataset?
+5. Which attack classes are sufficiently represented for meaningful modelling?
+6. How do the datasets differ in feature quality and usability?
+7. How do capture-session characteristics affect the reliability of ML evaluation?
+8. Which dataset provides the best balance between data quality, attack coverage, computational feasibility, and ML suitability?
 
 The resulting analysis will support the selection of a dataset for the major IDS project while producing reusable data-analysis, reporting, and visualization artifacts.
