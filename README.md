@@ -193,6 +193,7 @@ Raw dataset files are kept locally and excluded from version control.
 
 The analysis is being developed incrementally through notebooks:
 
+```
 Dataset Ingestion
        │
        ▼
@@ -221,7 +222,10 @@ ML Suitability Evaluation
 Visualization       Final Dataset Recommendation
 (Power BI /         & Comparative Report
  Tableau)
-Goals
+
+```
+
+## Goals
 
 The final analysis aims to answer:
 
