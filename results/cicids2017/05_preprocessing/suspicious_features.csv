@@ -1,0 +1,4 @@
+feature,negative_count,negative_percentage,action
+Flow Duration,115,0.004062537644710241,REVIEW
+Flow Bytes/s,85,0.0030027452156553953,REVIEW
+Flow Packets/s,115,0.004062537644710241,REVIEW

@@ -2,7 +2,7 @@
 
 Comparative analysis of CIC-based network intrusion detection datasets to evaluate their suitability for a machine-learning Intrusion Detection System (IDS) project.
 
-The project focuses on understanding **data quality, class distributions, feature characteristics, and practical modelling considerations** of CIC-based datasets before selecting a suitable dataset for the final IDS implementation.
+The project focuses on understanding **data quality, class distributions, feature characteristics, preprocessing requirements, and practical modelling considerations** of CIC-based datasets before selecting a suitable dataset for the final IDS implementation.
 
 ---
 
@@ -47,7 +47,9 @@ The final stage will compare the datasets across data quality, class balance, fe
 - [x] Percentile and range analysis
 - [x] IQR-based extreme-value analysis
 - [x] Distribution visualization
-- [ ] Preprocessing strategy
+- [x] Preprocessing strategy definition
+- [x] Candidate feature-set definition
+- [x] Target transformation strategy
 - [ ] ML-oriented dataset evaluation
 
 ### Cross-Dataset Analysis
@@ -73,7 +75,7 @@ The final stage will compare the datasets across data quality, class balance, fe
 The combined CIC-IDS2017 dataset contains:
 
 - **2,830,743 records**
-- **79 columns**
+- **79 original columns**
 - **8 source files**
 - A consistent schema and column ordering across the source files
 
@@ -91,7 +93,7 @@ The initial data-quality analysis identified several characteristics that will i
 - Multiple feature pairs exhibit very high or perfect correlation, indicating significant feature redundancy.
 - Several numerical features exhibit substantial skewness and extreme values.
 
-These issues are currently being **documented rather than modified**. Data cleaning and feature-selection decisions will be addressed during the later preprocessing stage.
+These issues were documented during exploratory analysis rather than modified in-place. The corresponding handling strategies are defined in the preprocessing analysis.
 
 ### Class Distribution
 
@@ -129,6 +131,25 @@ A **reproducible 250,000-row sample (`random_state=42`)** was used for computati
 
 No feature values or observations were modified or removed during the distribution analysis.
 
+### Preprocessing Strategy
+
+The preprocessing analysis consolidated the findings from the preceding notebooks into a documented strategy for subsequent ML preparation.
+
+Key decisions include:
+
+- **8 constant features** are candidates for removal because they provide no predictive variance.
+- Infinite values will be converted into a consistent missing-value representation before modelling.
+- Missing values will be handled through an explicit imputation strategy rather than indiscriminately dropping observations.
+- Suspicious numerical values will be reviewed according to feature semantics rather than automatically treated as errors.
+- Highly correlated features will be reviewed during feature selection rather than removed solely on the basis of correlation.
+- Exact duplicate records will be handled during final modelling-data preparation, with attention to potential train/test leakage.
+- The original **15-class target** will be preserved for multiclass evaluation.
+- A **binary BENIGN vs ATTACK target** is also defined for binary IDS evaluation.
+- Class imbalance will be addressed during model development through appropriate weighting and/or sampling strategies rather than altering the exploratory dataset.
+- Scaling will be applied according to the requirements of the eventual ML algorithms.
+
+The preprocessing notebook therefore defines the **intended preparation strategy without modifying the original CIC-IDS2017 dataset**.
+
 ---
 
 ## Project Structure
@@ -148,7 +169,8 @@ CIC-Dataset-Analysis/
 │   ├── 01_dataset_overview.ipynb
 │   ├── 02_feature_data_quality.ipynb
 │   ├── 03_class_distribution.ipynb
-│   └── 04_feature_distribution.ipynb
+│   ├── 04_feature_distribution.ipynb
+│   └── 05_preprocessing_strategy.ipynb
 │
 ├── results/
 │   └── cicids2017/
@@ -168,13 +190,21 @@ CIC-Dataset-Analysis/
 │       │   ├── overall_class_distribution.csv
 │       │   └── per_file_class_distribution.csv
 │       │
-│       └── 04_feature_distribution/
-│           ├── feature_distribution_summary.csv
-│           ├── feature_percentiles.csv
-│           ├── feature_outlier_summary.csv
-│           ├── highly_skewed_features.csv
-│           ├── zero_dominated_features.csv
-│           └── feature_distribution_report.csv
+│       ├── 04_feature_distribution/
+│       │   ├── feature_distribution_summary.csv
+│       │   ├── feature_percentiles.csv
+│       │   ├── feature_outlier_summary.csv
+│       │   ├── highly_skewed_features.csv
+│       │   ├── zero_dominated_features.csv
+│       │   └── feature_distribution_report.csv
+│       │
+│       └── 05_preprocessing/
+│           ├── preprocessing_decisions.csv
+│           ├── dropped_features.csv
+│           ├── candidate_features.csv
+│           ├── suspicious_features.csv
+│           ├── target_mapping.csv
+│           └── preprocessing_summary.csv
 │
 ├── src/
 │   ├── analysis/
@@ -186,14 +216,12 @@ CIC-Dataset-Analysis/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-
-Raw dataset files are kept locally and excluded from version control.
+```
 
 ## Analysis Pipeline
 
 The analysis is being developed incrementally through notebooks:
 
-```
 Dataset Ingestion
        │
        ▼
@@ -209,21 +237,20 @@ Dataset Ingestion
 04 — Feature Distribution
        │
        ▼
-05 — Preprocessing & Feature Selection
+05 — Preprocessing Strategy
+       │
+       ▼
+06 — ML Suitability Evaluation
        │
        ▼
 Cross-Dataset Analysis
        │
-       ▼
-ML Suitability Evaluation
-       │
        ├───────────────┐
        ▼               ▼
-Visualization       Final Dataset Recommendation
-(Power BI /         & Comparative Report
+Visualization       Dataset Comparison
+(Power BI /         & Final Recommendation
  Tableau)
 
-```
 
 ## Goals
 

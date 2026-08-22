@@ -1,0 +1,9 @@
+feature,reason,action
+Bwd PSH Flags,Constant feature,DROP
+Bwd URG Flags,Constant feature,DROP
+Fwd Avg Bytes/Bulk,Constant feature,DROP
+Fwd Avg Packets/Bulk,Constant feature,DROP
+Fwd Avg Bulk Rate,Constant feature,DROP
+Bwd Avg Bytes/Bulk,Constant feature,DROP
+Bwd Avg Packets/Bulk,Constant feature,DROP
+Bwd Avg Bulk Rate,Constant feature,DROP
