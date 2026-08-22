@@ -2,7 +2,7 @@
 
 Comparative analysis of CIC-based network intrusion detection datasets to evaluate their suitability for a machine-learning Intrusion Detection System (IDS) project.
 
-The project focuses on understanding the **data quality, class distributions, feature characteristics, and practical modelling considerations** of CIC-based datasets before selecting a suitable dataset for the final IDS implementation.
+The project focuses on understanding **data quality, class distributions, feature characteristics, and practical modelling considerations** of CIC-based datasets before selecting a suitable dataset for the final IDS implementation.
 
 ---
 
@@ -42,7 +42,11 @@ The final stage will compare the datasets across data quality, class balance, fe
 - [x] Per-file class distribution analysis
 - [x] Class presence analysis
 - [x] Class imbalance analysis
-- [ ] Feature distribution visualization
+- [x] Feature distribution analysis
+- [x] Skewness and kurtosis analysis
+- [x] Percentile and range analysis
+- [x] IQR-based extreme-value analysis
+- [x] Distribution visualization
 - [ ] Preprocessing strategy
 - [ ] ML-oriented dataset evaluation
 
@@ -110,6 +114,21 @@ This indicates that both **class imbalance and capture-session composition** wil
 
 No classes have been removed, merged, oversampled, or undersampled at this stage.
 
+### Feature Distributions
+
+The feature-distribution analysis identified substantial heterogeneity across the numerical feature space:
+
+- Many numerical features exhibit **strong right-skewness and heavy-tailed distributions**.
+- Several packet-count and packet-length features have very small median values but extremely large maximum values.
+- Features such as `act_data_pkt_fwd`, `Total Backward Packets`, `Total Fwd Packets`, and packet/header-length measurements exhibit particularly strong skewness.
+- Several features contain substantial proportions of zero-valued observations.
+- IQR-based analysis identifies large numbers of extreme observations in some features; these are **not automatically considered erroneous**, since highly variable network-flow behaviour can naturally produce extreme values.
+- The distributions demonstrate substantial differences in feature scale and spread, indicating that feature-aware preprocessing and scaling will be required for subsequent ML modelling.
+
+A **reproducible 250,000-row sample (`random_state=42`)** was used for computationally intensive distribution statistics and visualizations, while exact dataset-level counts were retained where practical.
+
+No feature values or observations were modified or removed during the distribution analysis.
+
 ---
 
 ## Project Structure
@@ -121,14 +140,15 @@ CIC-Dataset-Analysis/
 │   └── raw/
 │       ├── cicids2017/
 │       ├── cicids2018/
-│       └── cicids2019/
+│       └── cic2019/
 │
 ├── docs/
 │
 ├── notebooks/
 │   ├── 01_dataset_overview.ipynb
 │   ├── 02_feature_data_quality.ipynb
-│   └── 03_class_distribution.ipynb
+│   ├── 03_class_distribution.ipynb
+│   └── 04_feature_distribution.ipynb
 │
 ├── results/
 │   └── cicids2017/
@@ -140,13 +160,21 @@ CIC-Dataset-Analysis/
 │       │   ├── near_constant_features.csv
 │       │   └── schema_consistency_report.csv
 │       │
-│       └── 03_class_distribution/
-│           ├── attack_class_distribution.csv
-│           ├── class_file_presence.csv
-│           ├── class_imbalance_summary.csv
-│           ├── class_presence_matrix.csv
-│           ├── overall_class_distribution.csv
-│           └── per_file_class_distribution.csv
+│       ├── 03_class_distribution/
+│       │   ├── attack_class_distribution.csv
+│       │   ├── class_file_presence.csv
+│       │   ├── class_imbalance_summary.csv
+│       │   ├── class_presence_matrix.csv
+│       │   ├── overall_class_distribution.csv
+│       │   └── per_file_class_distribution.csv
+│       │
+│       └── 04_feature_distribution/
+│           ├── feature_distribution_summary.csv
+│           ├── feature_percentiles.csv
+│           ├── feature_outlier_summary.csv
+│           ├── highly_skewed_features.csv
+│           ├── zero_dominated_features.csv
+│           └── feature_distribution_report.csv
 │
 ├── src/
 │   ├── analysis/
@@ -158,3 +186,52 @@ CIC-Dataset-Analysis/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+
+Raw dataset files are kept locally and excluded from version control.
+
+## Analysis Pipeline
+
+The analysis is being developed incrementally through notebooks:
+
+Dataset Ingestion
+       │
+       ▼
+01 — Dataset Overview
+       │
+       ▼
+02 — Feature & Data Quality
+       │
+       ▼
+03 — Class Distribution
+       │
+       ▼
+04 — Feature Distribution
+       │
+       ▼
+05 — Preprocessing & Feature Selection
+       │
+       ▼
+Cross-Dataset Analysis
+       │
+       ▼
+ML Suitability Evaluation
+       │
+       ├───────────────┐
+       ▼               ▼
+Visualization       Final Dataset Recommendation
+(Power BI /         & Comparative Report
+ Tableau)
+Goals
+
+The final analysis aims to answer:
+
+Which CIC dataset provides the most suitable data for an ML-based IDS?
+How severe is class imbalance across the datasets?
+How much duplication and feature redundancy exists?
+What preprocessing is required for each dataset?
+Which attack classes are sufficiently represented for meaningful modelling?
+How do the datasets differ in feature quality and usability?
+How do capture-session characteristics affect the reliability of ML evaluation?
+Which dataset provides the best balance between data quality, attack coverage, computational feasibility, and ML suitability?
+
+The resulting analysis will support the selection of a dataset for the major IDS project while producing reusable data-analysis, reporting, and visualization artifacts.
