@@ -1,0 +1,32 @@
+file_name,label,record_count
+02-14-2018.csv,FTP-BruteForce,193360
+02-14-2018.csv,SSH-Bruteforce,187589
+02-14-2018.csv,Benign,667626
+02-15-2018.csv,Benign,996077
+02-15-2018.csv,DoS attacks-GoldenEye,41508
+02-15-2018.csv,DoS attacks-Slowloris,10990
+02-16-2018.csv,DoS attacks-Hulk,461912
+02-16-2018.csv,Benign,446772
+02-16-2018.csv,DoS attacks-SlowHTTPTest,139890
+02-16-2018.csv,Label,1
+02-20-2018.csv,DDoS attacks-LOIC-HTTP,576191
+02-20-2018.csv,Benign,7372557
+02-21-2018.csv,DDOS attack-HOIC,686012
+02-21-2018.csv,Benign,360833
+02-21-2018.csv,DDOS attack-LOIC-UDP,1730
+02-22-2018.csv,Benign,1048213
+02-22-2018.csv,Brute Force -Web,249
+02-22-2018.csv,Brute Force -XSS,79
+02-22-2018.csv,SQL Injection,34
+02-23-2018.csv,Benign,1048009
+02-23-2018.csv,Brute Force -Web,362
+02-23-2018.csv,Brute Force -XSS,151
+02-23-2018.csv,SQL Injection,53
+02-28-2018.csv,Benign,544200
+02-28-2018.csv,Infilteration,68871
+02-28-2018.csv,Label,33
+03-01-2018.csv,Benign,238037
+03-01-2018.csv,Infilteration,93063
+03-01-2018.csv,Label,25
+03-02-2018.csv,Bot,286191
+03-02-2018.csv,Benign,762384

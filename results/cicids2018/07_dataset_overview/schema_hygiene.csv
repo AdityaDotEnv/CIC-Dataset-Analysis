@@ -1,0 +1,81 @@
+column_index,column_name,leading_whitespace,trailing_whitespace,empty_name,has_whitespace_issue
+0,Dst Port,False,False,False,False
+1,Protocol,False,False,False,False
+2,Timestamp,False,False,False,False
+3,Flow Duration,False,False,False,False
+4,Tot Fwd Pkts,False,False,False,False
+5,Tot Bwd Pkts,False,False,False,False
+6,TotLen Fwd Pkts,False,False,False,False
+7,TotLen Bwd Pkts,False,False,False,False
+8,Fwd Pkt Len Max,False,False,False,False
+9,Fwd Pkt Len Min,False,False,False,False
+10,Fwd Pkt Len Mean,False,False,False,False
+11,Fwd Pkt Len Std,False,False,False,False
+12,Bwd Pkt Len Max,False,False,False,False
+13,Bwd Pkt Len Min,False,False,False,False
+14,Bwd Pkt Len Mean,False,False,False,False
+15,Bwd Pkt Len Std,False,False,False,False
+16,Flow Byts/s,False,False,False,False
+17,Flow Pkts/s,False,False,False,False
+18,Flow IAT Mean,False,False,False,False
+19,Flow IAT Std,False,False,False,False
+20,Flow IAT Max,False,False,False,False
+21,Flow IAT Min,False,False,False,False
+22,Fwd IAT Tot,False,False,False,False
+23,Fwd IAT Mean,False,False,False,False
+24,Fwd IAT Std,False,False,False,False
+25,Fwd IAT Max,False,False,False,False
+26,Fwd IAT Min,False,False,False,False
+27,Bwd IAT Tot,False,False,False,False
+28,Bwd IAT Mean,False,False,False,False
+29,Bwd IAT Std,False,False,False,False
+30,Bwd IAT Max,False,False,False,False
+31,Bwd IAT Min,False,False,False,False
+32,Fwd PSH Flags,False,False,False,False
+33,Bwd PSH Flags,False,False,False,False
+34,Fwd URG Flags,False,False,False,False
+35,Bwd URG Flags,False,False,False,False
+36,Fwd Header Len,False,False,False,False
+37,Bwd Header Len,False,False,False,False
+38,Fwd Pkts/s,False,False,False,False
+39,Bwd Pkts/s,False,False,False,False
+40,Pkt Len Min,False,False,False,False
+41,Pkt Len Max,False,False,False,False
+42,Pkt Len Mean,False,False,False,False
+43,Pkt Len Std,False,False,False,False
+44,Pkt Len Var,False,False,False,False
+45,FIN Flag Cnt,False,False,False,False
+46,SYN Flag Cnt,False,False,False,False
+47,RST Flag Cnt,False,False,False,False
+48,PSH Flag Cnt,False,False,False,False
+49,ACK Flag Cnt,False,False,False,False
+50,URG Flag Cnt,False,False,False,False
+51,CWE Flag Count,False,False,False,False
+52,ECE Flag Cnt,False,False,False,False
+53,Down/Up Ratio,False,False,False,False
+54,Pkt Size Avg,False,False,False,False
+55,Fwd Seg Size Avg,False,False,False,False
+56,Bwd Seg Size Avg,False,False,False,False
+57,Fwd Byts/b Avg,False,False,False,False
+58,Fwd Pkts/b Avg,False,False,False,False
+59,Fwd Blk Rate Avg,False,False,False,False
+60,Bwd Byts/b Avg,False,False,False,False
+61,Bwd Pkts/b Avg,False,False,False,False
+62,Bwd Blk Rate Avg,False,False,False,False
+63,Subflow Fwd Pkts,False,False,False,False
+64,Subflow Fwd Byts,False,False,False,False
+65,Subflow Bwd Pkts,False,False,False,False
+66,Subflow Bwd Byts,False,False,False,False
+67,Init Fwd Win Byts,False,False,False,False
+68,Init Bwd Win Byts,False,False,False,False
+69,Fwd Act Data Pkts,False,False,False,False
+70,Fwd Seg Size Min,False,False,False,False
+71,Active Mean,False,False,False,False
+72,Active Std,False,False,False,False
+73,Active Max,False,False,False,False
+74,Active Min,False,False,False,False
+75,Idle Mean,False,False,False,False
+76,Idle Std,False,False,False,False
+77,Idle Max,False,False,False,False
+78,Idle Min,False,False,False,False
+79,Label,False,False,False,False
