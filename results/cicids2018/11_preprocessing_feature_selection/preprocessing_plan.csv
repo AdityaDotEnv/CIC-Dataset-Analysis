@@ -1,0 +1,12 @@
+decision_area,planned_action
+schema hygiene,normalize column names consistently
+infinite values,convert +/-inf to NaN before treatment
+missing values,define treatment from observed prevalence
+constant features,remove from modelling features
+near-constant features,review before removal
+high correlation,review redundant features using training data only
+scaling,fit model-specific scaler on training data only
+duplicates,handle before splitting where appropriate
+class imbalance,address only after leakage-safe splitting
+rare classes,document validation limitations
+capture sessions,consider file/session-aware splitting
