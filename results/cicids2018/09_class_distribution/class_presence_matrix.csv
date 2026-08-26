@@ -1,0 +1,17 @@
+label,02-14-2018.csv,02-15-2018.csv,02-16-2018.csv,02-20-2018.csv,02-21-2018.csv,02-22-2018.csv,02-23-2018.csv,02-28-2018.csv,03-01-2018.csv,03-02-2018.csv
+Benign,1,1,1,1,1,1,1,1,1,1
+Bot,0,0,0,0,0,0,0,0,0,1
+Brute Force -Web,0,0,0,0,0,1,1,0,0,0
+Brute Force -XSS,0,0,0,0,0,1,1,0,0,0
+DDOS attack-HOIC,0,0,0,0,1,0,0,0,0,0
+DDOS attack-LOIC-UDP,0,0,0,0,1,0,0,0,0,0
+DDoS attacks-LOIC-HTTP,0,0,0,1,0,0,0,0,0,0
+DoS attacks-GoldenEye,0,1,0,0,0,0,0,0,0,0
+DoS attacks-Hulk,0,0,1,0,0,0,0,0,0,0
+DoS attacks-SlowHTTPTest,0,0,1,0,0,0,0,0,0,0
+DoS attacks-Slowloris,0,1,0,0,0,0,0,0,0,0
+FTP-BruteForce,1,0,0,0,0,0,0,0,0,0
+Infilteration,0,0,0,0,0,0,0,1,1,0
+Label,0,0,1,0,0,0,0,1,1,0
+SQL Injection,0,0,0,0,0,1,1,0,0,0
+SSH-Bruteforce,1,0,0,0,0,0,0,0,0,0

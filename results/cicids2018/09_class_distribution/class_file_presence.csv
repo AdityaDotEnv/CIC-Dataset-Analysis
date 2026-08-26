@@ -1,0 +1,17 @@
+label,files_present
+Bot,1
+DDoS attacks-LOIC-HTTP,1
+DDOS attack-LOIC-UDP,1
+DDOS attack-HOIC,1
+DoS attacks-GoldenEye,1
+DoS attacks-Slowloris,1
+DoS attacks-SlowHTTPTest,1
+DoS attacks-Hulk,1
+SSH-Bruteforce,1
+FTP-BruteForce,1
+Brute Force -Web,2
+Brute Force -XSS,2
+SQL Injection,2
+Infilteration,2
+Label,3
+Benign,10
