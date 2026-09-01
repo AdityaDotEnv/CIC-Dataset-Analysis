@@ -1,0 +1,48 @@
+{
+  "dataset": "CIC-IDS2017",
+  "target_column": "Label",
+  "raw_files": [
+    "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+    "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+    "Monday-WorkingHours.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "Tuesday-WorkingHours.pcap_ISCX.csv",
+    "Wednesday-workingHours.pcap_ISCX.csv"
+  ],
+  "feature_count": 78,
+  "dropped_features": [],
+  "label_mapping": {
+    "BENIGN": 0,
+    "Bot": 1,
+    "DDoS": 2,
+    "DoS GoldenEye": 3,
+    "DoS Hulk": 4,
+    "DoS Slowhttptest": 5,
+    "DoS slowloris": 6,
+    "FTP-Patator": 7,
+    "Heartbleed": 8,
+    "Infiltration": 9,
+    "PortScan": 10,
+    "SSH-Patator": 11,
+    "Web Attack \ufffd Brute Force": 12,
+    "Web Attack \ufffd Sql Injection": 13,
+    "Web Attack \ufffd XSS": 14
+  },
+  "split_ratios_requested": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "random_state": 42,
+  "transformations": [
+    "strip column-name whitespace",
+    "replace +/-inf with NaN",
+    "numeric coercion",
+    "median imputation fitted on train only",
+    "StandardScaler fitted on train only",
+    "label encoding"
+  ],
+  "raw_data_modified": false
+}

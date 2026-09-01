@@ -1,0 +1,5 @@
+{
+  "model": "RandomForest",
+  "selection_metric": "validation_macro_f1",
+  "validation_macro_f1": 0.833045273098664
+}

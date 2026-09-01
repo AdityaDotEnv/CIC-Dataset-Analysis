@@ -1,0 +1,9 @@
+priority,metric,purpose
+Primary,Macro F1,Treats classes equally; important under severe imbalance.
+Primary,Macro Recall,Measures whether minority attack classes are detected.
+Primary,Balanced Accuracy,Reduces dominance of majority class.
+Primary,Per-class F1,Exposes failure on rare attacks.
+Secondary,Weighted F1,Useful overall summary while retaining support weighting.
+Secondary,Accuracy,Context only because BENIGN dominates.
+Diagnostic,Confusion Matrix,Shows attack-to-attack and attack/benign confusion.
+Diagnostic,Training/Inference Time,Relevant to practical deployment.

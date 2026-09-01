@@ -1,0 +1,79 @@
+feature,dtype,dropped
+Destination Port,float32,False
+Flow Duration,float32,False
+Total Fwd Packets,float32,False
+Total Backward Packets,float32,False
+Total Length of Fwd Packets,float32,False
+Total Length of Bwd Packets,float32,False
+Fwd Packet Length Max,float32,False
+Fwd Packet Length Min,float32,False
+Fwd Packet Length Mean,float32,False
+Fwd Packet Length Std,float32,False
+Bwd Packet Length Max,float32,False
+Bwd Packet Length Min,float32,False
+Bwd Packet Length Mean,float32,False
+Bwd Packet Length Std,float32,False
+Flow Bytes/s,float32,False
+Flow Packets/s,float32,False
+Flow IAT Mean,float32,False
+Flow IAT Std,float32,False
+Flow IAT Max,float32,False
+Flow IAT Min,float32,False
+Fwd IAT Total,float32,False
+Fwd IAT Mean,float32,False
+Fwd IAT Std,float32,False
+Fwd IAT Max,float32,False
+Fwd IAT Min,float32,False
+Bwd IAT Total,float32,False
+Bwd IAT Mean,float32,False
+Bwd IAT Std,float32,False
+Bwd IAT Max,float32,False
+Bwd IAT Min,float32,False
+Fwd PSH Flags,float32,False
+Bwd PSH Flags,float32,False
+Fwd URG Flags,float32,False
+Bwd URG Flags,float32,False
+Fwd Header Length,float32,False
+Bwd Header Length,float32,False
+Fwd Packets/s,float32,False
+Bwd Packets/s,float32,False
+Min Packet Length,float32,False
+Max Packet Length,float32,False
+Packet Length Mean,float32,False
+Packet Length Std,float32,False
+Packet Length Variance,float32,False
+FIN Flag Count,float32,False
+SYN Flag Count,float32,False
+RST Flag Count,float32,False
+PSH Flag Count,float32,False
+ACK Flag Count,float32,False
+URG Flag Count,float32,False
+CWE Flag Count,float32,False
+ECE Flag Count,float32,False
+Down/Up Ratio,float32,False
+Average Packet Size,float32,False
+Avg Fwd Segment Size,float32,False
+Avg Bwd Segment Size,float32,False
+Fwd Header Length.1,float32,False
+Fwd Avg Bytes/Bulk,float32,False
+Fwd Avg Packets/Bulk,float32,False
+Fwd Avg Bulk Rate,float32,False
+Bwd Avg Bytes/Bulk,float32,False
+Bwd Avg Packets/Bulk,float32,False
+Bwd Avg Bulk Rate,float32,False
+Subflow Fwd Packets,float32,False
+Subflow Fwd Bytes,float32,False
+Subflow Bwd Packets,float32,False
+Subflow Bwd Bytes,float32,False
+Init_Win_bytes_forward,float32,False
+Init_Win_bytes_backward,float32,False
+act_data_pkt_fwd,float32,False
+min_seg_size_forward,float32,False
+Active Mean,float32,False
+Active Std,float32,False
+Active Max,float32,False
+Active Min,float32,False
+Idle Mean,float32,False
+Idle Std,float32,False
+Idle Max,float32,False
+Idle Min,float32,False

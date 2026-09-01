@@ -1,0 +1,4 @@
+decision_item,selection,justification
+Primary dataset,CIC-IDS2017,Best overall engineering trade-off for the intended ML IDS under available compute.
+Secondary dataset,CIC-IDS2018,Retained for comparative evidence and possible future benchmarking.
+Raw data modification in this notebook,None,Selection only; actual transformation is performed in Notebook 14.
