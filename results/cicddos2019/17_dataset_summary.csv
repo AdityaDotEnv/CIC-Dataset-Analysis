@@ -1,0 +1,2 @@
+dataset,source_files,total_records,common_columns,label,storage_format
+CIC-DDoS2019,17,431371,78,Label,Parquet

@@ -1,0 +1,8 @@
+criterion,preferred_dataset,reason,evidence
+Data quality,Review comparison matrix,Prefer the dataset with fewer problematic values/features after accounting for dataset scale.,02/08 feature-data-quality artifacts
+Class balance,Review class-distribution artifacts,"Prefer broader and less severely imbalanced attack representation, while retaining rare-class limitations explicitly.",03/09 class-distribution artifacts
+Attack coverage,Review class-distribution artifacts,Prefer useful attack diversity and sufficient observations per class.,03/09 class-distribution artifacts
+Feature quality / redundancy,Review comparison matrix,Prefer a feature space requiring less aggressive redundancy reduction without sacrificing useful signal.,02/08 and 04/10 artifacts
+Preprocessing burden,Review preprocessing artifacts,Prefer a dataset whose required cleaning and feature-selection strategy is practical and reproducible.,05 and 11 preprocessing artifacts
+Computational feasibility,Review dataset scale + execution experience,Dataset size must be balanced against available compute and the eventual training workflow.,01/07 overview artifacts and execution constraints
+Overall ML suitability,Determine after all criteria,"Final choice must balance quality, coverage, preprocessing burden, computational feasibility, and evaluation reliability.",All completed notebooks

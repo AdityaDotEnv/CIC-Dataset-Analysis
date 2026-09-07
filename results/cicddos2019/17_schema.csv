@@ -1,0 +1,79 @@
+column,dtype,numeric,missing_in_sample,unique_in_sample
+Protocol,int8,True,0,3
+Flow Duration,int32,True,0,2263
+Total Fwd Packets,int16,True,0,88
+Total Backward Packets,int16,True,0,90
+Fwd Packets Length Total,float32,True,0,865
+Bwd Packets Length Total,float32,True,0,378
+Fwd Packet Length Max,float32,True,0,737
+Fwd Packet Length Min,float32,True,0,590
+Fwd Packet Length Mean,float32,True,0,948
+Fwd Packet Length Std,float32,True,0,385
+Bwd Packet Length Max,float32,True,0,199
+Bwd Packet Length Min,float32,True,0,118
+Bwd Packet Length Mean,float32,True,0,420
+Bwd Packet Length Std,float32,True,0,317
+Flow Bytes/s,float64,True,0,3381
+Flow Packets/s,float64,True,0,2365
+Flow IAT Mean,float32,True,0,2317
+Flow IAT Std,float32,True,0,2310
+Flow IAT Max,float32,True,0,2241
+Flow IAT Min,float32,True,0,301
+Fwd IAT Total,float32,True,0,1145
+Fwd IAT Mean,float32,True,0,1173
+Fwd IAT Std,float32,True,0,1035
+Fwd IAT Max,float32,True,0,1127
+Fwd IAT Min,float32,True,0,188
+Bwd IAT Total,float32,True,0,683
+Bwd IAT Mean,float32,True,0,693
+Bwd IAT Std,float32,True,0,662
+Bwd IAT Max,float32,True,0,674
+Bwd IAT Min,float32,True,0,38
+Fwd PSH Flags,int8,True,0,2
+Bwd PSH Flags,int8,True,0,1
+Fwd URG Flags,int8,True,0,1
+Bwd URG Flags,int8,True,0,1
+Fwd Header Length,int64,True,0,652
+Bwd Header Length,int32,True,0,161
+Fwd Packets/s,float32,True,0,2356
+Bwd Packets/s,float32,True,0,1914
+Packet Length Min,float32,True,0,587
+Packet Length Max,float32,True,0,727
+Packet Length Mean,float32,True,0,1131
+Packet Length Std,float32,True,0,516
+Packet Length Variance,float32,True,0,516
+FIN Flag Count,int8,True,0,1
+SYN Flag Count,int8,True,0,2
+RST Flag Count,int8,True,0,2
+PSH Flag Count,int8,True,0,1
+ACK Flag Count,int8,True,0,2
+URG Flag Count,int8,True,0,2
+CWE Flag Count,int8,True,0,2
+ECE Flag Count,int8,True,0,1
+Down/Up Ratio,float32,True,0,9
+Avg Packet Size,float32,True,0,1153
+Avg Fwd Segment Size,float32,True,0,948
+Avg Bwd Segment Size,float32,True,0,420
+Fwd Avg Bytes/Bulk,int8,True,0,1
+Fwd Avg Packets/Bulk,int8,True,0,1
+Fwd Avg Bulk Rate,int8,True,0,1
+Bwd Avg Bytes/Bulk,int8,True,0,1
+Bwd Avg Packets/Bulk,int8,True,0,1
+Bwd Avg Bulk Rate,int8,True,0,1
+Subflow Fwd Packets,int16,True,0,88
+Subflow Fwd Bytes,int32,True,0,865
+Subflow Bwd Packets,int16,True,0,90
+Subflow Bwd Bytes,int32,True,0,378
+Init Fwd Win Bytes,int32,True,0,235
+Init Bwd Win Bytes,int32,True,0,191
+Fwd Act Data Packets,int16,True,0,58
+Fwd Seg Size Min,int32,True,0,481
+Active Mean,float32,True,0,365
+Active Std,float32,True,0,247
+Active Max,float32,True,0,353
+Active Min,float32,True,0,328
+Idle Mean,float32,True,0,369
+Idle Std,float32,True,0,270
+Idle Max,float32,True,0,366
+Idle Min,float32,True,0,360
+Label,category,False,0,2

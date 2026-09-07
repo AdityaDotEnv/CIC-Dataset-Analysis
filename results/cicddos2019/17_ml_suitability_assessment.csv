@@ -1,0 +1,12 @@
+criterion,value,interpretation
+Records,431371.0,"Large dataset suitable for ML experimentation, subject to compute constraints."
+Classes,18.0,Multiclass complexity should be considered in model evaluation.
+Majority class percentage,28.135410122609077,Higher values indicate stronger class imbalance.
+Smallest class support,51.0,Very small classes can make robust validation difficult.
+Classes below 100 records,2.0,Rare classes may require special evaluation or sampling.
+Missing values,0.0,Missing values require explicit handling before ML.
+Infinite values,0.0,Infinite values require replacement before most ML workflows.
+Duplicate rows,0.0,Duplicates should be investigated to reduce leakage and redundancy.
+Constant features,12.0,Constant features carry no predictive information.
+Highly correlated pairs |r| >= 0.90,50.0,Redundant features may warrant removal for some models.
+Highly skewed numeric features,58.0,Heavy-tailed variables may benefit from transformation or robust models.

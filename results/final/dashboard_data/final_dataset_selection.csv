@@ -1,0 +1,4 @@
+dataset,role,decision,reason
+CIC-IDS2017,Primary,Selected,Best fit for the main general-purpose ML IDS experiment within the project's comparative analysis.
+CIC-IDS2018,Secondary,Retained,Useful larger-scale benchmark and comparative reference for the primary experiment.
+CIC-DDoS2019,Specialized,Retained,Useful for DDoS-focused evaluation but too specialized to replace the primary general-purpose dataset.

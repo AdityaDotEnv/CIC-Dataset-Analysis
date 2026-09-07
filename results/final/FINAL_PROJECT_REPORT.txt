@@ -1,0 +1,75 @@
+CIC DATASET ANALYSIS — FINAL PROJECT REPORT
+============================================================
+
+DATASET DECISION
+------------------------------------------------------------
+CIC-IDS2017: Primary — Selected
+Reason: Best fit for the main general-purpose ML IDS experiment within the project's comparative analysis.
+
+CIC-IDS2018: Secondary — Retained
+Reason: Useful larger-scale benchmark and comparative reference for the primary experiment.
+
+CIC-DDoS2019: Specialized — Retained
+Reason: Useful for DDoS-focused evaluation but too specialized to replace the primary general-purpose dataset.
+
+SOURCE OVERVIEW
+------------------------------------------------------------
+     dataset  source_files  total_records  max_columns  total_size_mb
+CIC-DDoS2019            17         431371           78         33.602
+ CIC-IDS2017             8        2313810           78        258.116
+ CIC-IDS2018            10       16233002           84       6567.620
+
+DATA QUALITY
+------------------------------------------------------------
+     dataset  records  files  missing_values  infinite_values  duplicate_occurrences  max_constant_numeric_features
+CIC-DDoS2019   431371     17               0                0                    0.0                             14
+ CIC-IDS2017  2313810      8               0                0                    0.0                             10
+ CIC-IDS2018 16233002     10           59721           131799                    0.0                             10
+
+FINAL RANDOM FOREST BASELINE
+------------------------------------------------------------
+       model  sample_rows  train_rows  test_rows  features  classes  accuracy  balanced_accuracy  macro_f1  weighted_f1
+RandomForest      1000000      800000     200000        69       15  0.998365           0.816455  0.833278     0.998326
+
+PER-CLASS METRICS
+------------------------------------------------------------
+                     class  precision   recall       f1  support
+                    Benign   0.998988 0.999509 0.999248   170915
+                       Bot   0.829787 0.629032 0.715596      124
+                      DDoS   0.999458 0.999548 0.999503    11065
+             DoS GoldenEye   0.995506 0.996625 0.996065      889
+                  DoS Hulk   0.998253 0.994378 0.996311    14940
+          DoS Slowhttptest   0.935282 0.991150 0.962406      452
+             DoS slowloris   1.000000 0.991398 0.995680      465
+               FTP-Patator   1.000000 0.998051 0.999024      513
+                Heartbleed   1.000000 1.000000 1.000000        1
+              Infiltration   1.000000 0.666667 0.800000        3
+                  PortScan   0.945783 0.928994 0.937313      169
+               SSH-Patator   1.000000 0.960432 0.979817      278
+  Web Attack � Brute Force   0.734375 0.740157 0.737255      127
+Web Attack � Sql Injection   0.000000 0.000000 0.000000        2
+          Web Attack � XSS   0.416667 0.350877 0.380952       57
+
+TOP 20 FEATURE IMPORTANCES
+------------------------------------------------------------
+                 feature  importance
+      Init Bwd Win Bytes    0.044537
+   Fwd Packet Length Max    0.038184
+           Flow IAT Mean    0.030723
+      Init Fwd Win Bytes    0.028219
+    Avg Bwd Segment Size    0.026965
+       Subflow Bwd Bytes    0.025932
+   Bwd Packet Length Max    0.025430
+            Flow IAT Max    0.025422
+  Bwd Packet Length Mean    0.025130
+           Flow Duration    0.024725
+       Bwd Header Length    0.024540
+           Bwd Packets/s    0.024515
+            Flow IAT Std    0.024228
+        Fwd Seg Size Min    0.023163
+          Flow Packets/s    0.022275
+Bwd Packets Length Total    0.021766
+           Fwd Packets/s    0.020774
+            Fwd IAT Mean    0.020544
+             Fwd IAT Std    0.020344
+             Fwd IAT Max    0.020264

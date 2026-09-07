@@ -1,0 +1,4 @@
+dataset,source_files,total_records,max_columns,total_size_mb
+CIC-DDoS2019,17,431371,78,33.602000000000004
+CIC-IDS2017,8,2313810,78,258.116
+CIC-IDS2018,10,16233002,84,6567.62

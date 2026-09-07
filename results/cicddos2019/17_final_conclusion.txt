@@ -1,0 +1,17 @@
+CIC-DDoS2019 was analysed using the current Kaggle Parquet representation.
+
+The analysed collection contains 17 source data files and 431,371 records.
+
+The dataset contains 18 observed classes. The largest class represents 28.14% of records, while the smallest class contains 51 records.
+
+The quality analysis identified 0 missing values, 0 infinite values, and 0 duplicate rows within source files.
+
+12 globally constant features were identified.
+
+50 feature pairs had absolute correlation >= 0.90 in the correlation sample.
+
+58 numeric features had sample absolute skewness >= 2.
+
+For ML use, explicit handling of infinities, missing values, duplicates, feature redundancy, and class imbalance is recommended.
+
+For the overall CIC dataset comparison, CIC-DDoS2019 should be interpreted as a specialized DDoS benchmark. It provides useful evidence about DDoS detection but should not automatically replace a broader multiclass IDS dataset as the primary benchmark.

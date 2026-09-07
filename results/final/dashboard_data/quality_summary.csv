@@ -1,0 +1,4 @@
+dataset,records,files,missing_values,infinite_values,duplicate_occurrences,max_constant_numeric_features
+CIC-DDoS2019,431371,17,0,0,0.0,14
+CIC-IDS2017,2313810,8,0,0,0.0,10
+CIC-IDS2018,16233002,10,59721,131799,0.0,10

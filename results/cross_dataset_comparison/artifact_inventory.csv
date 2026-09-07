@@ -1,0 +1,63 @@
+dataset,relative_path,file_name,size_bytes,rows_sampled,column_count,columns
+CIC-IDS2017,02_feature_data_quality/feature_quality_summary.csv,feature_quality_summary.csv,7024,5,11,Unnamed: 0 | dtype | unique_values | missing_count | missing_percentage | is_numeric | inf_count | zero_percentage | skewness | constant | near_constant
+CIC-IDS2017,02_feature_data_quality/high_correlation_pairs.csv,high_correlation_pairs.csv,2101,5,3,feature_1 | feature_2 | correlation
+CIC-IDS2017,02_feature_data_quality/infinite_value_summary.csv,infinite_value_summary.csv,1914,5,3,Unnamed: 0 | inf_count | inf_percentage
+CIC-IDS2017,02_feature_data_quality/missing_value_summary.csv,missing_value_summary.csv,1917,5,3,Unnamed: 0 | missing_count | missing_percentage
+CIC-IDS2017,02_feature_data_quality/near_constant_features.csv,near_constant_features.csv,357,5,2,feature | dominant_value_frequency
+CIC-IDS2017,02_feature_data_quality/schema_consistency_report.csv,schema_consistency_report.csv,538,5,5,file | num_columns | missing_columns | extra_columns | column_order_matches
+CIC-IDS2017,03_class_distribution/attack_class_distribution.csv,attack_class_distribution.csv,597,5,3,attack_class | count | percentage_of_attacks
+CIC-IDS2017,03_class_distribution/class_file_presence.csv,class_file_presence.csv,268,5,2,Label | files_present
+CIC-IDS2017,03_class_distribution/class_imbalance_summary.csv,class_imbalance_summary.csv,409,5,2,metric | value
+CIC-IDS2017,03_class_distribution/class_presence_matrix.csv,class_presence_matrix.csv,828,5,16,source_file | BENIGN | Bot | DDoS | DoS GoldenEye | DoS Hulk | DoS Slowhttptest | DoS slowloris | FTP-Patator | Heartbleed | Infiltration | PortScan | SSH-Patator | Web Attack � Brute Force | Web Attack � Sql Injection | Web Attack � XSS
+CIC-IDS2017,03_class_distribution/overall_class_distribution.csv,overall_class_distribution.csv,618,5,3,Class | count | percentage
+CIC-IDS2017,03_class_distribution/per_file_class_distribution.csv,per_file_class_distribution.csv,1823,5,4,source_file | Label | count | percentage
+CIC-IDS2017,04_feature_distribution/feature_distribution_report.csv,feature_distribution_report.csv,14464,5,19,Unnamed: 0 | count | mean | std | min | 25% | 50% | 75% | max | missing_count | missing_percentage | zero_count | zero_percentage | skewness | kurtosis | max_to_median_ratio | skew_category | zero_dominated | high_outlier_rate
+CIC-IDS2017,04_feature_distribution/feature_distribution_summary.csv,feature_distribution_summary.csv,12913,5,16,Unnamed: 0 | count | mean | std | min | 25% | 50% | 75% | max | missing_count | missing_percentage | zero_count | zero_percentage | skewness | kurtosis | max_to_median_ratio
+CIC-IDS2017,04_feature_distribution/feature_outlier_summary.csv,feature_outlier_summary.csv,3254,5,5,Unnamed: 0 | lower_outliers | upper_outliers | total_outliers | outlier_percentage
+CIC-IDS2017,04_feature_distribution/feature_percentiles.csv,feature_percentiles.csv,6181,5,10,Unnamed: 0 | 0.01 | 0.05 | 0.25 | 0.5 | 0.75 | 0.95 | 0.99 | iqr | p99_p50_ratio
+CIC-IDS2017,04_feature_distribution/highly_skewed_features.csv,highly_skewed_features.csv,11731,5,16,Unnamed: 0 | count | mean | std | min | 25% | 50% | 75% | max | missing_count | missing_percentage | zero_count | zero_percentage | skewness | kurtosis | max_to_median_ratio
+CIC-IDS2017,04_feature_distribution/zero_dominated_features.csv,zero_dominated_features.csv,2344,5,15,Unnamed: 0 | count | mean | std | min | 25% | 50% | 75% | max | missing_count | missing_percentage | zero_count | zero_percentage | skewness | kurtosis
+CIC-IDS2017,05_preprocessing/candidate_features.csv,candidate_features.csv,1946,5,2,feature | status
+CIC-IDS2017,05_preprocessing/dropped_features.csv,dropped_features.csv,351,5,3,feature | reason | action
+CIC-IDS2017,05_preprocessing/preprocessing_decisions.csv,preprocessing_decisions.csv,555,5,3,issue | decision | stage
+CIC-IDS2017,05_preprocessing/preprocessing_summary.csv,preprocessing_summary.csv,211,5,2,metric | value
+CIC-IDS2017,05_preprocessing/suspicious_features.csv,suspicious_features.csv,192,3,4,feature | negative_count | negative_percentage | action
+CIC-IDS2017,05_preprocessing/target_mapping.csv,target_mapping.csv,273,5,2,class_name | class_id
+CIC-IDS2017,06_ml_suitability/class_distribution_assessment.csv,class_distribution_assessment.csv,521,4,4,factor | finding | severity | ml_impact
+CIC-IDS2017,06_ml_suitability/computational_feasibility_assessment.csv,computational_feasibility_assessment.csv,528,5,3,factor | finding | assessment
+CIC-IDS2017,06_ml_suitability/data_quality_assessment.csv,data_quality_assessment.csv,643,5,4,factor | finding | severity | ml_impact
+CIC-IDS2017,06_ml_suitability/dataset_metrics.csv,dataset_metrics.csv,261,1,12,records | original_features | original_columns | source_files | traffic_classes | benign_percentage | missing_values | missing_percentage | duplicate_occurrences | duplicate_group_rows | duplicate_groups | constant_features
+CIC-IDS2017,06_ml_suitability/feature_suitability_assessment.csv,feature_suitability_assessment.csv,595,5,4,factor | finding | severity | ml_impact
+CIC-IDS2017,06_ml_suitability/ml_suitability_scorecard.csv,ml_suitability_scorecard.csv,834,5,3,criterion | rating | assessment
+CIC-IDS2018,07_dataset_overview/class_distribution.csv,class_distribution.csv,1067,5,3,file_name | label | record_count
+CIC-IDS2018,07_dataset_overview/class_presence_matrix.csv,class_presence_matrix.csv,1310,5,11,label | 02-14-2018.csv | 02-15-2018.csv | 02-16-2018.csv | 02-20-2018.csv | 02-21-2018.csv | 02-22-2018.csv | 02-23-2018.csv | 02-28-2018.csv | 03-01-2018.csv | 03-02-2018.csv
+CIC-IDS2018,07_dataset_overview/column_inventory.csv,column_inventory.csv,1341,5,2,column_index | column_name
+CIC-IDS2018,07_dataset_overview/dataset_summary.csv,dataset_summary.csv,126,5,2,metric | value
+CIC-IDS2018,07_dataset_overview/file_inventory.csv,file_inventory.csv,52,0,4,file_name | file_size_bytes | file_size_mb | file_size_gb
+CIC-IDS2018,07_dataset_overview/overall_class_distribution.csv,overall_class_distribution.csv,697,5,3,label | record_count | percentage
+CIC-IDS2018,07_dataset_overview/row_counts.csv,row_counts.csv,251,5,2,file_name | record_count
+CIC-IDS2018,07_dataset_overview/schema_comparison.csv,schema_comparison.csv,421,5,6,file_name | column_count | matches_reference_order | matches_reference_set | missing_columns | extra_columns
+CIC-IDS2018,07_dataset_overview/schema_hygiene.csv,schema_hygiene.csv,3332,5,6,column_index | column_name | leading_whitespace | trailing_whitespace | empty_name | has_whitespace_issue
+CIC-IDS2018,07_dataset_overview/target_presence.csv,target_presence.csv,225,5,2,file_name | target_present
+CIC-IDS2018,08_feature_data_quality/column_inventory.csv,column_inventory.csv,1341,5,2,column_index | column_name
+CIC-IDS2018,08_feature_data_quality/constant_features.csv,constant_features.csv,23,0,2,feature | classification
+CIC-IDS2018,08_feature_data_quality/duplicate_summary.csv,duplicate_summary.csv,90,1,3,duplicate_group_count | rows_in_duplicate_groups | duplicate_occurrences
+CIC-IDS2018,08_feature_data_quality/feature_quality_summary.csv,feature_quality_summary.csv,139,1,7,Unnamed: 0 | dtype | unique_values | missing_count | zero_count | missing_percentage | zero_percentage
+CIC-IDS2018,08_feature_data_quality/high_correlation_pairs.csv,high_correlation_pairs.csv,32,0,3,feature_1 | feature_2 | correlation
+CIC-IDS2018,08_feature_data_quality/infinite_value_summary.csv,infinite_value_summary.csv,1641,5,3,Unnamed: 0 | infinite_count | infinite_percentage
+CIC-IDS2018,08_feature_data_quality/missing_value_summary.csv,missing_value_summary.csv,1619,5,3,Unnamed: 0 | missing_count | missing_percentage
+CIC-IDS2018,08_feature_data_quality/near_constant_features.csv,near_constant_features.csv,2988,5,2,feature | classification
+CIC-IDS2018,08_feature_data_quality/schema_consistency_report.csv,schema_consistency_report.csv,352,5,5,file | column_count | matches_reference | missing_columns | extra_columns
+CIC-IDS2018,09_class_distribution/attack_class_distribution.csv,attack_class_distribution.csv,983,5,4,label | record_count | percentage | percentage_of_attack_traffic
+CIC-IDS2018,09_class_distribution/benign_vs_attack_distribution.csv,benign_vs_attack_distribution.csv,104,2,3,traffic_type | record_count | percentage
+CIC-IDS2018,09_class_distribution/class_file_presence.csv,class_file_presence.csv,309,5,2,label | files_present
+CIC-IDS2018,09_class_distribution/class_imbalance_summary.csv,class_imbalance_summary.csv,191,1,7,total_records | benign_records | attack_records | benign_percentage | attack_percentage | number_of_classes | number_of_attack_classes
+CIC-IDS2018,09_class_distribution/class_presence_matrix.csv,class_presence_matrix.csv,732,5,11,label | 02-14-2018.csv | 02-15-2018.csv | 02-16-2018.csv | 02-20-2018.csv | 02-21-2018.csv | 02-22-2018.csv | 02-23-2018.csv | 02-28-2018.csv | 03-01-2018.csv | 03-02-2018.csv
+CIC-IDS2018,09_class_distribution/overall_class_distribution.csv,overall_class_distribution.csv,697,5,3,label | record_count | percentage
+CIC-IDS2018,09_class_distribution/per_file_class_distribution.csv,per_file_class_distribution.csv,1671,5,4,file_name | label | record_count | percentage
+CIC-IDS2018,10_feature_distribution/feature_distribution_summary.csv,feature_distribution_summary.csv,271,1,15,Unnamed: 0 | count | mean | std | min | 25% | 50% | 75% | max | missing_count | missing_percentage | zero_count | zero_percentage | skewness | kurtosis
+CIC-IDS2018,10_feature_distribution/feature_outlier_summary.csv,feature_outlier_summary.csv,67,1,3,Unnamed: 0 | outlier_count | outlier_percentage
+CIC-IDS2018,10_feature_distribution/feature_percentiles.csv,feature_percentiles.csv,96,1,8,Unnamed: 0 | p01 | p05 | p25 | p50 | p75 | p95 | p99
+CIC-IDS2018,10_feature_distribution/highly_skewed_features.csv,highly_skewed_features.csv,271,1,15,Unnamed: 0 | count | mean | std | min | 25% | 50% | 75% | max | missing_count | missing_percentage | zero_count | zero_percentage | skewness | kurtosis
+CIC-IDS2018,10_feature_distribution/zero_dominated_features.csv,zero_dominated_features.csv,114,0,15,Unnamed: 0 | count | mean | std | min | 25% | 50% | 75% | max | missing_count | missing_percentage | zero_count | zero_percentage | skewness | kurtosis
+CIC-IDS2018,11_preprocessing_feature_selection/preprocessing_plan.csv,preprocessing_plan.csv,621,5,2,decision_area | planned_action
