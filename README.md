@@ -2,200 +2,196 @@
 
 Comparative analysis of CIC-based network intrusion-detection datasets to determine their suitability for a machine-learning Intrusion Detection System (IDS).
 
+The project has now progressed from exploratory dataset analysis to a complete, reproducible analysis and reporting pipeline:
+
+```text
+Raw CIC datasets
+      │
+      ▼
+Dataset-level analysis
+      │
+      ├── CIC-IDS2017
+      ├── CIC-IDS2018
+      └── CIC-DDoS2019
+      │
+      ▼
+Cross-dataset comparison
+      │
+      ▼
+Evidence-based dataset selection
+      │
+      ▼
+CIC-IDS2017 preprocessing
+      │
+      ▼
+Baseline / final ML evaluation
+      │
+      ▼
+Reusable Python implementation
+      │
+      ▼
+Dashboard-ready artifacts
+      │
+      ├── HTML dashboard
+      └── Power BI dashboard
+```
+
+---
+
+## Project Status
+
+**Analysis pipeline: COMPLETE**
+
+**Reporting pipeline: COMPLETE**
+
+**Dashboard data generation: COMPLETE**
+
+**Power BI dashboard: NEXT / PRESENTATION LAYER**
+
+| Area | Status |
+|---|---|
+| CIC-IDS2017 analysis | Complete |
+| CIC-IDS2018 analysis | Complete |
+| CIC-DDoS2019 analysis | Complete |
+| Cross-dataset comparison | Complete |
+| Final dataset selection | Complete |
+| CIC-IDS2017 preprocessing | Complete |
+| Baseline ML evaluation | Complete |
+| Final ML reporting | Complete |
+| Reusable `src/` implementation | Complete |
+| Dashboard artifact generation | Complete |
+| Static HTML dashboard | Available / being polished |
+| Power BI report | Recommended next deliverable |
+| Research paper | Ready to write from generated evidence |
+
 The project deliberately separates:
 
 1. **Dataset analysis** — understanding the datasets before modelling.
 2. **Dataset selection** — making an evidence-based choice of the primary ML dataset.
 3. **ML preparation and evaluation** — producing a reproducible, leakage-aware dataset and evaluating baseline/final models.
 4. **Implementation** — converting validated notebook work into reusable Python modules and scripts.
-5. **Reporting and visualization** — producing dashboard-ready artifacts and the final comparative evidence.
+5. **Reporting and visualization** — producing dashboard-ready artifacts and presentation-quality evidence.
 
 ---
 
-## Current Status
+# Executive Conclusion
 
-The comparative analysis of all three originally scoped datasets is now complete:
+The completed comparative analysis supports the following dataset strategy:
 
-| Dataset | Role | Status |
+| Dataset | Role | Decision |
 |---|---|---|
-| **CIC-IDS2017** | **Primary general-purpose ML dataset** | Complete |
-| **CIC-IDS2018** | **Secondary large-scale benchmark** | Complete |
-| **CIC-DDoS2019** | **Specialized DDoS benchmark** | Complete |
+| **CIC-IDS2017** | Primary general-purpose ML IDS dataset | **Selected** |
+| **CIC-IDS2018** | Secondary large-scale benchmark | **Retained** |
+| **CIC-DDoS2019** | Specialized DDoS benchmark | **Retained** |
 
-The final consolidation confirms the following project decision:
+> **CIC-IDS2017 is the primary dataset for the main general-purpose multiclass IDS experiment because it provides the best balance of attack coverage, analytical tractability, computational feasibility and suitability for the intended modelling task. CIC-IDS2018 is retained as a larger comparative benchmark, while CIC-DDoS2019 is retained for specialized DDoS analysis.**
 
-> **CIC-IDS2017 remains the primary dataset for the main general-purpose ML IDS experiment. CIC-IDS2018 is retained as a larger secondary benchmark, while CIC-DDoS2019 is retained as a specialized DDoS-focused benchmark.**
-
-CIC-DDoS2019 does **not** replace the CIC-IDS2017 modelling pipeline because its scope is substantially more DDoS-focused.
+CIC-DDoS2019 should not replace the general-purpose CIC-IDS2017 pipeline because its scope is strongly concentrated on DDoS behavior.
 
 ---
 
-# Dataset Findings
+# Major Analytical Findings
 
 ## CIC-IDS2017
 
-**Role: Primary ML dataset**
+The canonical analysis contains approximately:
 
-The combined analysis contains approximately:
-
-- **2.83 million records** in the canonical CIC-IDS2017 analysis
+- **2.83 million records**
 - **79 columns** in the original analysis representation
 - **8 source files**
 - **15 traffic classes**: BENIGN plus 14 attack categories
 
-Key findings include:
+Important findings:
 
 - Approximately **80.30% BENIGN traffic**.
-- **1,358 missing values (0.048%)** in the earlier canonical analysis, concentrated in `Flow Bytes/s`.
-- Infinite values in rate-based features including `Flow Packets/s` and `Flow Bytes/s`.
-- **308,381 exact duplicate occurrences**.
-- **403,550 rows participating in duplicate groups**.
-- **95,150 distinct duplicate groups**.
-- **8 constant features** plus several near-constant features.
-- Significant highly/perfectly correlated feature pairs.
-- Strongly skewed and heavy-tailed numerical distributions.
-- Extremely rare classes including **Heartbleed (11)**, **SQL Injection (21)** and **Infiltration (36)**.
-- Attack categories concentrated within particular capture sessions/source files.
+- Missing values were concentrated in `Flow Bytes/s` in the earlier canonical representation.
+- Infinite values occur in rate-based features such as `Flow Packets/s` and `Flow Bytes/s`.
+- **308,381 exact duplicate occurrences** were identified.
+- **403,550 rows** participated in duplicate groups.
+- **95,150 distinct duplicate groups** were identified.
+- **8 constant features** were identified, with additional near-constant features.
+- Numerous highly correlated / redundant feature pairs exist.
+- Numerical variables are strongly skewed and heavy-tailed.
+- Rare classes include **Heartbleed, SQL Injection and Infiltration**.
+- Attack classes are strongly associated with particular capture sessions/source files.
 
-These characteristics motivate explicit handling of:
+These observations motivate explicit treatment of:
 
 - class imbalance,
 - duplicates,
 - capture/session composition,
 - invalid numerical values,
 - feature redundancy,
-- extreme distributions, and
-- computational constraints.
+- skewed distributions,
+- computational cost, and
+- evaluation leakage.
 
-The dataset was therefore assessed as:
+The dataset is therefore considered:
 
 > **Suitable with conditions.**
 
-A naïve random split should not be treated as sufficient evidence of real-world IDS generalization.
+A naïve random split should not be interpreted as sufficient evidence of real-world IDS generalization.
 
 ---
 
 ## CIC-IDS2018
 
-**Role: Secondary comparative benchmark**
+CIC-IDS2018 provides a substantially larger benchmark:
 
-The analysis established:
+- approximately **16.23 million records** in the canonical analysis,
+- **10 source files** in the final consolidation representation,
+- broader scale and traffic coverage than CIC-IDS2017.
 
-- Approximately **16.23 million records** in the canonical dataset analysis.
-- **10 source files** in the final consolidation representation.
-- A larger feature/schema footprint than CIC-IDS2017.
-- Broad attack coverage and substantially greater scale.
+The final quality analysis reports substantial missing/infinite-value and constant-feature issues at the source-file level.
 
-The final consolidation quality scan reports:
+Its main advantage is scale and broader coverage.
 
-- **59,721 missing values**
-- **131,799 infinite values**
-- Up to **10 constant numeric features** at the source-file level.
+Its main disadvantage is the increased computational and preprocessing burden.
 
-The dataset's principal advantage is scale and broader traffic coverage. Its principal disadvantage for this project is the substantially greater computational and preprocessing burden.
+It is therefore retained as a:
 
-It is therefore retained as a **secondary benchmark and comparative reference**, rather than the primary modelling dataset.
-
-> **Important:** quality statistics depend on the downloaded source representation and the exact analysis methodology used by each notebook. The final report should cite the generated artifacts rather than mixing figures from different preprocessing stages.
+> **Secondary large-scale comparative benchmark.**
 
 ---
 
 ## CIC-DDoS2019
 
-**Role: Specialized DDoS benchmark**
-
-The completed Notebook 17 analysis used the current Kaggle **Parquet** representation.
-
-The analyzed collection contains:
+The completed analysis used the current Parquet representation:
 
 - **431,371 records**
 - **17 source files**
 - **78 columns**
 - **18 observed classes**
-- `Label` as the target field
+- `Label` as the target
 
-### Data quality
-
-The DDoS2019 analysis identified:
+Raw-data quality in the analyzed representation was comparatively clean:
 
 - **0 missing values**
 - **0 infinite values**
-- **0 duplicate rows within the analyzed source files**
+- **0 duplicate rows within analyzed source files**
 - **12 globally constant features**
-- **50 feature pairs with |r| >= 0.90** in the correlation sample
+- **50 feature pairs with |r| >= 0.90**
 - **58 numeric features with sample absolute skewness >= 2**
 
-This makes the current DDoS2019 representation comparatively clean at the raw-data level, but clean data does not eliminate modelling concerns.
+The largest classes include:
 
-### Class distribution
+- `DrDoS_NTP` — 121,368 records
+- `TFTP` — 98,917
+- `Benign` — 97,831
+- `Syn` — 49,373
 
-The largest classes were:
+The smallest include:
 
-- `DrDoS_NTP` — **121,368 records (28.14%)**
-- `TFTP` — **98,917 records (22.93%)**
-- `Benign` — **97,831 records (22.68%)**
-- `Syn` — **49,373 records (11.45%)**
+- `UDPLag` — 55
+- `WebDDoS` — 51
 
-The smallest observed classes were:
-
-- `UDPLag` — **55 records**
-- `WebDDoS` — **51 records**
-
-Thus, the largest class is more than **2,379×** the smallest class.
-
-Only two observed classes contain fewer than 100 records, but several other classes have relatively small support.
-
-### ML suitability
-
-The analysis recommends:
-
-- normalize labels and map them to stable class IDs;
-- replace infinities with `NaN` before imputation where applicable;
-- use documented imputation when missing values arise after preprocessing;
-- investigate duplicates before model evaluation;
-- remove globally constant features;
-- review highly correlated feature pairs;
-- consider scaling for scale-sensitive models;
-- include a tree-based baseline;
-- report macro-F1, weighted-F1, per-class recall and confusion matrices rather than accuracy alone.
-
-The final conclusion is:
-
-> **CIC-DDoS2019 is suitable as a specialized DDoS benchmark, but should not automatically replace a broader multiclass IDS dataset as the primary benchmark.**
-
----
-
-# Final Three-Dataset Decision
-
-The final consolidation produces this evidence-based role assignment:
-
-| Dataset | Role | Decision | Rationale |
-|---|---|---|---|
-| **CIC-IDS2017** | Primary | **Selected** | Best fit for the main general-purpose ML IDS experiment within the comparative analysis. |
-| **CIC-IDS2018** | Secondary | **Retained** | Useful larger-scale benchmark and comparative reference. |
-| **CIC-DDoS2019** | Specialized | **Retained** | Useful for DDoS-focused evaluation but too specialized to replace the general-purpose primary dataset. |
-
-This means the project does **not** require three independent production IDS pipelines.
-
-The intended modelling path remains:
-
-```text
-                 CIC Dataset Comparison
-                          │
-          ┌───────────────┼────────────────┐
-          │               │                │
-      IDS2017         IDS2018          DDoS2019
-      Primary         Secondary        Specialized
-          │
-          ▼
-   Main ML IDS Pipeline
-```
+The dataset is therefore useful for DDoS-focused experimentation but is not the preferred primary benchmark for the broader multiclass IDS objective.
 
 ---
 
 # Final ML Baseline
 
-The final consolidation independently evaluates a Random Forest baseline on CIC-IDS2017.
+The final consolidation evaluates a Random Forest baseline on CIC-IDS2017.
 
 Configuration:
 
@@ -204,11 +200,11 @@ Configuration:
 - **200,000 test rows**
 - **69 input features**
 - **15 classes**
-- Random Forest with **100 trees**
+- **100 trees**
 - `class_weight="balanced_subsample"`
 - `max_features="sqrt"`
 
-Final aggregate metrics:
+Final evaluation:
 
 | Metric | Result |
 |---|---:|
@@ -217,9 +213,24 @@ Final aggregate metrics:
 | Macro F1 | **0.833278** |
 | Weighted F1 | **0.998326** |
 
-The high accuracy/weighted-F1 values should **not** be interpreted in isolation. Minority-class performance is substantially weaker for several rare classes.
+The project also contains a separate reusable baseline run comparing:
 
-Examples from the final test evaluation:
+- DummyMajority
+- LogisticRegression
+- RandomForest
+
+The latest baseline execution selected RandomForest with:
+
+> **Validation macro-F1 = 0.8658**
+
+These numbers represent **different evaluation stages** and must not be mixed in the final paper:
+
+- `0.8658` = reusable baseline validation experiment.
+- `0.833278` = final consolidation test evaluation.
+
+The high accuracy and weighted-F1 of the final evaluation should not be interpreted alone.
+
+Examples of weaker minority-class performance include:
 
 | Class | Support | F1 |
 |---|---:|---:|
@@ -230,22 +241,17 @@ Examples from the final test evaluation:
 | Web Attack – XSS | 57 | 0.381 |
 | Heartbleed | 1 | 1.000 |
 
-The disparity between:
+Therefore:
 
-```text
-Accuracy       ≈ 99.84%
-Macro F1       ≈ 83.33%
-```
+> **The Random Forest is a strong baseline on the sampled evaluation, not evidence of deployment-ready intrusion detection.**
 
-demonstrates why class-aware metrics are necessary for IDS evaluation.
-
-The final model should therefore be described as a **strong baseline on the sampled evaluation**, not as proof of deployment-ready intrusion detection.
+The final paper should emphasize macro-F1, balanced accuracy, per-class recall/F1 and confusion matrices rather than accuracy alone.
 
 ---
 
-# Final Feature Importance
+# Feature Analysis
 
-The final Random Forest identifies the following among its most influential features:
+The final Random Forest identifies important features including:
 
 - `Init Bwd Win Bytes`
 - `Fwd Packet Length Max`
@@ -263,225 +269,480 @@ The final Random Forest identifies the following among its most influential feat
 - `Fwd Seg Size Min`
 - `Flow Packets/s`
 
-The complete feature-importance artifact is available under the final results directory.
+The complete feature-importance artifact is generated under the final ML/reporting results.
 
 ---
 
-# Notebook Pipeline
+# Notebook Analysis Pipeline
 
-Only **two additional notebooks** were required to complete the remaining work.
+The completed notebook sequence provides the research/audit trail.
 
-### CIC-DDoS2019
+### Dataset analysis
 
-- [x] **17 — CIC-DDoS2019 Complete Analysis**
-  - dataset overview
-  - schema/file inventory
-  - data quality
-  - duplicates
-  - class distribution
-  - feature distribution
-  - correlation analysis
-  - preprocessing recommendations
-  - ML suitability
-  - final dataset role/conclusion
+- CIC-IDS2017 overview
+- CIC-IDS2017 quality analysis
+- CIC-IDS2017 class analysis
+- CIC-IDS2017 feature analysis
+- preprocessing strategy
+- ML suitability
 
-### Final Consolidation
+### CIC-IDS2018
 
-- [x] **18 — Final Consolidation & ML Reporting**
-  - all-three-dataset source inventory
-  - cross-dataset quality summary
-  - class distributions
-  - final dataset selection
-  - final CIC-IDS2017 Random Forest baseline
-  - aggregate ML metrics
-  - per-class metrics
-  - confusion matrix
-  - feature importance
-  - dashboard-ready CSV artifacts
-  - final project report
+- dataset overview
+- feature/data quality
+- class distribution
+- feature distribution
+- preprocessing/feature selection
+- cross-dataset comparison
 
-The project therefore ends the exploratory dataset-comparison phase at **Notebook 18**, rather than expanding the project into five separate DDoS2019 notebooks and additional redundant reporting notebooks.
+### Final consolidation
+
+- final dataset selection
+- CIC-IDS2017 preparation
+- baseline ML evaluation
+- final ML evaluation
+- CIC-DDoS2019 complete analysis
+- final consolidation and reporting
+
 
 ---
 
-# Repository Structure
+# Reusable Python Implementation
 
-Use the following structure.
+The implementation layer is organized as:
 
 ```text
-CIC-Dataset-Analysis/
+src/
+├── analysis/
+│   └── metrics.py
 │
-├── data/
-│   ├── raw/                         # NOT committed
-│   │   ├── cicids2017/
-│   │   ├── cicids2018/
-│   │   └── cicddos2019/
-│   │
-│   └── processed/
-│       └── cicids2017/
-│           ├── train.parquet
-│           ├── validation.parquet
-│           ├── test.parquet
-│           ├── feature_columns.json
-│           ├── label_mapping.json
-│           ├── imputer.joblib
-│           ├── scaler.joblib
-│           ├── split_manifest.parquet
-│           └── manifest.json
+├── ingestion/
+│   └── loaders.py
 │
-├── notebooks/
-│   ├── 01_dataset_overview.ipynb
-│   ├── 02_feature_data_quality.ipynb
-│   ├── 03_class_distribution.ipynb
-│   ├── 04_feature_distribution.ipynb
-│   ├── 05_preprocessing_strategy.ipynb
-│   ├── 06_ml_suitability_evaluation.ipynb
-│   ├── 07_dataset_overview_2018_colab.ipynb
-│   ├── 08_feature_data_quality_colab.ipynb
-│   ├── 09_class_distribution_2018_colab.ipynb
-│   ├── 10_feature_distribution_2018_colab.ipynb
-│   ├── 11_preprocessing_feature_selection.ipynb
-│   ├── 12_cross_dataset_comparison_colab.ipynb
-│   ├── 13_final_dataset_selection.ipynb
-│   ├── 14_final_cicids2017_preparation.ipynb
-│   ├── 15_baseline_ml_evaluation.ipynb
-│   ├── 16_final_ml_evaluation.ipynb
-│   ├── 17_cicddos2019_complete_analysis_colab.ipynb
-│   └── 18_final_consolidation_ml_reporting_colab.ipynb
+├── preprocessing/
+│   └── pipeline.py
 │
-├── results/
-│   ├── cicids2017/
-│   ├── cicids2018/
-│   ├── cicddos2019/
-│   │   ├── 17_dataset_summary.csv
-│   │   ├── 17_quality_summary.csv
-│   │   ├── 17_class_distribution.csv
-│   │   ├── 17_feature_quality.csv
-│   │   ├── 17_ml_suitability_assessment.csv
-│   │   ├── 17_preprocessing_recommendations.csv
-│   │   └── 17_final_conclusion.txt
-│   │
-│   └── final/
-│       ├── FINAL_PROJECT_REPORT.txt
-│       ├── artifact_inventory.csv
-│       ├── dashboard_data/
-│       └── ml/
+├── reporting/
+│   ├── build_dashboard_data.py
+│   └── generate_results.py
 │
-├── scripts/
-│   ├── run_baseline.py
-│   ├── run_dashboard_export.py
-│   └── validate_processed_dataset.py
+├── visualization/
+│   └── plots.py
 │
-├── src/
-│   ├── analysis/
-│   ├── ingestion/
-│   ├── preprocessing/
-│   ├── reporting/
-│   └── visualization/
-│
-├── docs/
-├── IMPLEMENTATION_ROADMAP.md
-├── README_REMAINING_WORK.md
-├── README.md
-├── .gitignore
-├── .gitattributes
-└── requirements.txt
+└── dashboard/
+    └── html.py
 ```
+
+The corresponding scripts are:
+
+```text
+scripts/
+├── build_dashboard.py
+├── diagnose_processed_artifacts.py
+├── run_baseline.py
+├── run_dashboard_export.py
+├── run_reporting_pipeline.py
+├── validate_processed_dataset.py
+└── validate_results.py
+```
+
+### Responsibilities
+
+`src/analysis/`
+- shared metric calculations
+- per-class metrics
+- confusion-matrix preparation
+
+`src/ingestion/`
+- reusable CSV/Parquet loading
+- chunked loading utilities
+
+`src/preprocessing/`
+- reusable preprocessing implementation
+- imputation/scaling logic
+
+`src/reporting/`
+- converts analytical artifacts into dashboard-friendly tables
+- generates reporting figures
+
+`src/visualization/`
+- reusable plotting functions
+
+`src/dashboard/`
+- presentation layer for the static HTML dashboard
+
+The implementation layer consumes completed analytical artifacts wherever possible. It does **not** reload the raw multi-million-row datasets simply to build the dashboard.
 
 ---
 
-# Where the New Files Go
+# Reporting Pipeline
 
-### Notebook 17
+The current pipeline is:
 
-Put:
-
-```text
-17_cicddos2019_complete_analysis_colab.ipynb
+```powershell
+python scripts/run_baseline.py
+python scripts/run_reporting_pipeline.py
 ```
 
-in:
+The reporting pipeline currently validates:
 
 ```text
-notebooks/
+results/cross_dataset_comparison/
+results/final_dataset_selection/
+results/final/ml/
+results/final/dashboard_data/
+results/ml_baseline/
 ```
 
-### Notebook 18
-
-Put:
+It then produces:
 
 ```text
-18_final_consolidation_ml_reporting_colab.ipynb
-```
-
-in:
-
-```text
-notebooks/
-```
-
-### DDoS2019 result ZIP
-
-**Do not commit the ZIP itself.**
-
-Extract its contents into:
-
-```text
-results/cicddos2019/
-```
-
-The ZIP contains the completed DDoS2019 analytical artifacts, including class distributions, feature statistics, quality reports, correlations, preprocessing recommendations and the final conclusion.
-
-### Final result ZIP
-
-**Do not commit the ZIP itself.**
-
-Extract its contents into:
-
-```text
-results/final/
-```
-
-This contains:
-
-```text
-results/final/
-├── FINAL_PROJECT_REPORT.txt
-├── artifact_inventory.csv
+results/reporting/
 ├── dashboard_data/
-│   ├── dataset_overview.csv
-│   ├── quality_summary.csv
-│   ├── quality_by_source_file.csv
-│   ├── class_distribution.csv
-│   ├── class_distribution_by_file.csv
-│   ├── final_dataset_selection.csv
-│   ├── ml_metrics.csv
-│   ├── ml_per_class_metrics.csv
-│   ├── ml_confusion_matrix.csv
-│   ├── ml_feature_importance.csv
-│   └── *.png
+│   ├── ...
+│   └── dashboard_manifest.csv
 │
-└── ml/
-    ├── final_random_forest.joblib
-    ├── final_ml_metrics.csv
-    ├── final_per_class_metrics.csv
-    ├── final_confusion_matrix.csv
-    ├── final_feature_importance.csv
-    ├── feature_columns.json
-    ├── feature_medians.joblib
-    ├── constant_features.json
-    └── *.png
+└── figures/
+    ├── ...
+    └── figure_manifest.csv
 ```
 
-The ZIP archives themselves should remain local/download artifacts and should be ignored by Git.
+Current reporting validation:
+
+```text
+103 dashboard tables exported
+0 failed exports
+9+ generated figures
+```
 
 ---
 
-# Git / Large Files
+# HTML Dashboard
 
-Do **not** commit the raw CIC datasets.
+The static HTML dashboard is intended as a quick local presentation layer.
 
-Use:
+It should **not** be treated as the final professional BI deliverable.
+
+The HTML dashboard consumes the generated analytical artifacts rather than recalculating the analysis.
+
+For a production-quality presentation, use Power BI as the primary interactive dashboard.
+
+---
+
+# Power BI Dashboard
+
+Power BI should consume the curated CSV artifacts under:
+
+```text
+results/reporting/dashboard_data/
+```
+
+or, for the final consolidation artifacts:
+
+```text
+results/final/dashboard_data/
+```
+
+**Do not import the raw CIC-IDS2017/2018/DDoS2019 datasets into the dashboard merely to reproduce the analytical results.**
+
+The dashboard should represent the completed analysis.
+
+## Recommended report pages
+
+### 1. Executive Overview
+
+Purpose: answer "What did this project find?"
+
+Include:
+
+- primary dataset = CIC-IDS2017
+- secondary = CIC-IDS2018
+- specialized = CIC-DDoS2019
+- final model
+- accuracy
+- balanced accuracy
+- macro-F1
+- weighted-F1
+- total analyzed records
+- class count
+- key conclusion cards
+
+Add a short methodology/conclusion text box:
+
+> CIC-IDS2017 provides the best balance for the project's general-purpose multiclass IDS objective. CIC-IDS2018 is retained as a larger benchmark and CIC-DDoS2019 as a specialized DDoS benchmark.
+
+### 2. Dataset Comparison
+
+Uses:
+
+- dataset size
+- source-file count
+- feature count
+- missing values
+- infinite values
+- constant features
+- class count
+- computational considerations
+
+Visuals:
+
+- clustered column chart
+- KPI cards
+- comparison matrix
+- dataset-role slicer
+
+### 3. Data Quality
+
+Shows:
+
+- missing values
+- infinite values
+- duplicates
+- constant features
+- near-constant features
+- high-correlation feature counts
+
+Recommended visuals:
+
+- KPI cards
+- bar chart by dataset
+- matrix by source file
+- tooltip with methodology
+
+### 4. Class Distribution
+
+Shows:
+
+- class count
+- absolute records
+- percentage
+- dataset
+- source file
+
+Recommended visuals:
+
+- horizontal bar chart
+- 100% stacked bar
+- dataset slicer
+- source-file slicer
+
+Use drillthrough for individual classes where useful.
+
+### 5. Feature Analysis
+
+Shows:
+
+- top Random Forest feature importance
+- feature rank
+- feature statistics
+- skewness
+- correlation/redundancy
+
+Recommended visuals:
+
+- horizontal top-15 feature-importance chart
+- feature-quality matrix
+- correlation summary
+
+### 6. ML Performance
+
+This should be the strongest technical page.
+
+Shows:
+
+- Accuracy
+- Balanced Accuracy
+- Macro F1
+- Weighted F1
+- model comparison
+- per-class Precision
+- per-class Recall
+- per-class F1
+- support
+
+Recommended visuals:
+
+- KPI cards
+- model comparison bar chart
+- per-class F1 horizontal bars
+- per-class recall
+- confusion matrix heatmap
+
+### 7. Dataset Decision
+
+Shows:
+
+| Dataset | Role | Decision |
+|---|---|---|
+| CIC-IDS2017 | Primary | Selected |
+| CIC-IDS2018 | Secondary | Retained |
+| CIC-DDoS2019 | Specialized | Retained |
+
+
+---
+
+# Power BI Data Model
+
+
+```text
+                    DimDataset
+                        │
+              ┌─────────┼─────────┐
+              │         │         │
+              ▼         ▼         ▼
+        FactQuality  FactClass  FactComparison
+              │
+              │
+              ▼
+        FactMLPerformance
+              │
+              ▼
+        FactFeatureImportance
+```
+
+---
+
+# Recommended DAX Measures
+
+Examples:
+
+```DAX
+Accuracy =
+AVERAGE(FactMLPerformance[Accuracy])
+```
+
+```DAX
+Balanced Accuracy =
+AVERAGE(FactMLPerformance[Balanced Accuracy])
+```
+
+```DAX
+Macro F1 =
+AVERAGE(FactMLPerformance[Macro F1])
+```
+
+```DAX
+Weighted F1 =
+AVERAGE(FactMLPerformance[Weighted F1])
+```
+
+```DAX
+Total Records =
+SUM(FactClass[Count])
+```
+
+```DAX
+Class Count =
+DISTINCTCOUNT(FactClass[Class])
+```
+---
+
+# Power BI Presentation Standards
+
+For a professional portfolio/research presentation:
+
+- Use a consistent dark/light visual system.
+- Use one accent color for primary results.
+- Use red/orange only for warnings or poor metrics.
+- Keep page titles consistent.
+- Use 16:9 report pages.
+- Align visuals to a grid.
+- Avoid overcrowding.
+- Prefer 5–8 meaningful visuals per page.
+- Keep legends and axis labels readable.
+- Use tooltips for secondary detail.
+- Use slicers sparingly.
+- Add a methodology note to technical pages.
+- Put source/artifact provenance in a small footer.
+- Do not present the 99.8% accuracy figure without macro-F1/balanced accuracy beside it.
+
+The dashboard should tell a story rather than function as a collection of charts.
+
+---
+
+# Power BI Interaction Features
+
+Add:
+
+- dataset slicer
+- class slicer
+- source-file slicer where applicable
+- model slicer
+- drillthrough from class distribution to class detail
+- bookmarks for "Dataset View" / "ML View"
+- navigation buttons between report pages
+- tooltip pages for methodology and definitions
+
+Bookmarks can capture filters, slicer state, visual state, sort order and visibility, making them useful for building a guided presentation.
+
+---
+
+# Portfolio / Profile Value
+
+The Power BI report is valuable because it demonstrates more than "I trained a model."
+
+It demonstrates:
+
+### Data engineering
+
+- multi-dataset ingestion
+- heterogeneous source handling
+- large-scale data inspection
+- Parquet-based processing
+- reusable loading utilities
+
+### Data analysis
+
+- data-quality profiling
+- missing/infinite-value analysis
+- duplicate analysis
+- class-imbalance analysis
+- correlation analysis
+- feature-quality analysis
+
+### Machine learning
+
+- leakage-aware preprocessing
+- train/validation/test separation
+- baseline comparison
+- Random Forest modelling
+- class-aware evaluation
+- confusion matrices
+- feature importance
+
+### Software engineering
+
+- modular `src/` architecture
+- CLI scripts
+- validation utilities
+- reproducible reporting
+- artifact-driven pipeline
+
+### Business intelligence / analytics
+
+- semantic modelling
+- DAX measures
+- interactive dashboards
+- drillthrough
+- bookmarks
+- data storytelling
+
+### Research
+
+- evidence-based dataset selection
+- limitations analysis
+- reproducible methodology
+- distinction between benchmark performance and deployment readiness
+
+This is significantly stronger as a portfolio project than presenting only a Jupyter notebook and a model accuracy number.
+
+---
+
+# Git and Large Files
+
+Do **not** commit raw CIC datasets.
+
+Recommended ignore rules include:
 
 ```gitignore
 data/raw/
@@ -490,137 +751,62 @@ data/raw/
 __pycache__/
 ```
 
-Keep large processed/model artifacts under **Git LFS**, particularly:
+Large processed/model artifacts should use Git LFS where appropriate:
 
 ```text
 *.parquet
 *.joblib
 ```
 
-The analytical CSVs, reports, notebooks and source code can remain ordinary Git files unless they become unusually large.
+Generated reporting data can remain ignored if it is reproducible from the notebooks/scripts.
+
+The final presentation-quality dashboard HTML may be tracked explicitly if desired.
 
 ---
 
-# Dashboard
+# Reproducibility
 
-The final consolidation already produces dashboard-ready data under:
+After the analytical artifacts already exist:
 
-```text
-results/final/dashboard_data/
+```powershell
+python scripts/validate_results.py
+python scripts/run_reporting_pipeline.py
+python scripts/build_dashboard.py
 ```
 
-These CSVs are intended to be consumed by **Power BI** as the primary dashboard platform.
+For a new ML experiment:
 
-Recommended dashboard pages:
+```powershell
+python scripts/run_baseline.py
+```
 
-1. **Dataset Overview**
-2. **Data Quality**
-3. **Class Distribution**
-4. **Feature Characteristics**
-5. **Three-Dataset Comparison**
-6. **ML Performance**
-7. **Final Dataset Decision**
+Do **not** rerun the baseline simply because dashboard/reporting code changes.
 
-The dashboard should use the aggregated analytical artifacts rather than directly importing the raw multi-million-row datasets.
+The ML training stage is independent from the dashboard presentation layer.
 
 ---
 
-# Implementation Layer
+# Research Paper Structure
 
-The reusable implementation remains separated from the research notebooks:
+The completed evidence supports an IEEE-style paper structure:
 
-```text
-src/
-├── analysis/
-├── ingestion/
-├── preprocessing/
-├── reporting/
-└── visualization/
+1. Introduction
+2. Related Work
+3. Dataset Selection Methodology
+4. CIC-IDS2017 Analysis
+5. CIC-IDS2018 Analysis
+6. CIC-DDoS2019 Analysis
+7. Cross-Dataset Comparison
+8. Final Dataset Selection
+9. Preprocessing and Feature Engineering
+10. Machine Learning Methodology
+11. Experimental Results
+12. Dashboard and Analytical Findings
+13. Limitations
+14. Threats to Validity
+15. Conclusion and Future Work
 
-scripts/
-├── run_baseline.py
-├── run_dashboard_export.py
-└── validate_processed_dataset.py
-```
-
-The notebooks provide the research/audit trail.
-
-The Python modules and scripts provide the reusable implementation layer.
-
-Important CIC-IDS2017 ML artifacts remain under:
-
-```text
-data/processed/cicids2017/
-```
-
-These include the canonical train/validation/test Parquet splits, feature list, label mapping, imputer, scaler and split manifest.
-
----
-
-# Recommended Next Steps
-
-The dataset-analysis phase is now effectively complete.
-
-The next work should focus on **using the evidence**, not creating more exploratory notebooks.
-
-### 1. Freeze the dataset decision
-
-```text
-CIC-IDS2017 → Primary
-CIC-IDS2018 → Secondary
-CIC-DDoS2019 → Specialized
-```
-
-### 2. Validate the reusable implementation
-
-Run:
-
-```text
-scripts/validate_processed_dataset.py
-```
-
-### 3. Reproduce the baseline
-
-Run:
-
-```text
-scripts/run_baseline.py
-```
-
-### 4. Generate dashboard artifacts
-
-Run:
-
-```text
-scripts/run_dashboard_export.py
-```
-
-### 5. Build the Power BI dashboard
-
-Use:
-
-```text
-results/final/dashboard_data/
-```
-
-### 6. Write the research report
-
-The final report should combine:
-
-1. Dataset methodology
-2. CIC-IDS2017 analysis
-3. CIC-IDS2018 analysis
-4. CIC-DDoS2019 analysis
-5. Three-dataset comparison
-6. Dataset selection rationale
-7. CIC-IDS2017 preprocessing
-8. ML methodology
-9. Baseline/final results
-10. Dashboard findings
-11. Limitations
-12. Final IDS recommendation
-
-The report should explicitly distinguish:
+The paper should explicitly distinguish:
 
 ```text
 Dataset suitability
@@ -630,13 +816,13 @@ Model performance
 Deployment readiness
 ```
 
-A very high aggregate accuracy does not establish real-world IDS deployment readiness, particularly when rare classes have very small support and substantially lower F1/recall.
+A high aggregate accuracy does not establish real-world IDS deployment readiness, particularly when rare classes have low support and substantially weaker class-specific metrics.
 
 ---
 
 # Final Project Objective
 
-The completed analysis is designed to answer:
+The completed analysis answers:
 
 1. Which CIC dataset is most suitable for the intended ML-based IDS?
 2. How severe is class imbalance in each dataset?
@@ -645,12 +831,12 @@ The completed analysis is designed to answer:
 5. Which attack classes have sufficient representation?
 6. How do capture/session characteristics affect evaluation?
 7. What computational burden does each dataset impose?
-8. Which dataset provides the best balance between data quality, attack coverage, computational feasibility and ML suitability?
+8. Which dataset provides the best balance between quality, attack coverage, computational feasibility and ML suitability?
 9. Does the selected dataset support useful multiclass IDS modelling?
 10. What limitations prevent benchmark performance from being interpreted as deployment-ready IDS performance?
 
-## Current answer
+## Final answer
 
-> **CIC-IDS2017 is the primary ML dataset because it provides the best balance for the project's general-purpose multiclass IDS objective. CIC-IDS2018 is retained as a larger secondary benchmark, and CIC-DDoS2019 is retained as a specialized DDoS benchmark.**
+> **CIC-IDS2017 is the primary dataset for the general-purpose multiclass IDS experiment. CIC-IDS2018 is retained as a larger secondary benchmark, and CIC-DDoS2019 is retained as a specialized DDoS benchmark.**
 
-The final Random Forest baseline demonstrates strong aggregate performance on the sampled CIC-IDS2017 evaluation, but minority-class metrics show that aggregate accuracy alone is insufficient. Further modelling should therefore prioritize class-aware evaluation and rigorous validation rather than simply maximizing accuracy.
+The project has therefore moved beyond exploratory analysis. The remaining work is primarily **presentation, dashboard engineering, research communication, and further model experimentation if required**.
