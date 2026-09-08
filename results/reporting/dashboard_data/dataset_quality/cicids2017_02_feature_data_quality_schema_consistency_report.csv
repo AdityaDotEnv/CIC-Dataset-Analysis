@@ -1,0 +1,9 @@
+file,num_columns,missing_columns,extra_columns,column_order_matches
+Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,79,0,0,True
+Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,79,0,0,True
+Friday-WorkingHours-Morning.pcap_ISCX.csv,79,0,0,True
+Monday-WorkingHours.pcap_ISCX.csv,79,0,0,True
+Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,79,0,0,True
+Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,79,0,0,True
+Tuesday-WorkingHours.pcap_ISCX.csv,79,0,0,True
+Wednesday-workingHours.pcap_ISCX.csv,79,0,0,True

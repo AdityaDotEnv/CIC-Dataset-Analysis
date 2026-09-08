@@ -1,0 +1,11 @@
+file_name,column_count,matches_reference_order,matches_reference_set,missing_columns,extra_columns
+02-14-2018.csv,80,True,True,0,0
+02-15-2018.csv,80,True,True,0,0
+02-16-2018.csv,80,True,True,0,0
+02-20-2018.csv,84,False,False,0,4
+02-21-2018.csv,80,True,True,0,0
+02-22-2018.csv,80,True,True,0,0
+02-23-2018.csv,80,True,True,0,0
+02-28-2018.csv,80,True,True,0,0
+03-01-2018.csv,80,True,True,0,0
+03-02-2018.csv,80,True,True,0,0

@@ -1,0 +1,71 @@
+feature,status
+Destination Port,CANDIDATE
+Flow Duration,CANDIDATE
+Total Fwd Packets,CANDIDATE
+Total Backward Packets,CANDIDATE
+Total Length of Fwd Packets,CANDIDATE
+Total Length of Bwd Packets,CANDIDATE
+Fwd Packet Length Max,CANDIDATE
+Fwd Packet Length Min,CANDIDATE
+Fwd Packet Length Mean,CANDIDATE
+Fwd Packet Length Std,CANDIDATE
+Bwd Packet Length Max,CANDIDATE
+Bwd Packet Length Min,CANDIDATE
+Bwd Packet Length Mean,CANDIDATE
+Bwd Packet Length Std,CANDIDATE
+Flow Bytes/s,CANDIDATE
+Flow Packets/s,CANDIDATE
+Flow IAT Mean,CANDIDATE
+Flow IAT Std,CANDIDATE
+Flow IAT Max,CANDIDATE
+Flow IAT Min,CANDIDATE
+Fwd IAT Total,CANDIDATE
+Fwd IAT Mean,CANDIDATE
+Fwd IAT Std,CANDIDATE
+Fwd IAT Max,CANDIDATE
+Fwd IAT Min,CANDIDATE
+Bwd IAT Total,CANDIDATE
+Bwd IAT Mean,CANDIDATE
+Bwd IAT Std,CANDIDATE
+Bwd IAT Max,CANDIDATE
+Bwd IAT Min,CANDIDATE
+Fwd PSH Flags,CANDIDATE
+Fwd URG Flags,CANDIDATE
+Fwd Header Length,CANDIDATE
+Bwd Header Length,CANDIDATE
+Fwd Packets/s,CANDIDATE
+Bwd Packets/s,CANDIDATE
+Min Packet Length,CANDIDATE
+Max Packet Length,CANDIDATE
+Packet Length Mean,CANDIDATE
+Packet Length Std,CANDIDATE
+Packet Length Variance,CANDIDATE
+FIN Flag Count,CANDIDATE
+SYN Flag Count,CANDIDATE
+RST Flag Count,CANDIDATE
+PSH Flag Count,CANDIDATE
+ACK Flag Count,CANDIDATE
+URG Flag Count,CANDIDATE
+CWE Flag Count,CANDIDATE
+ECE Flag Count,CANDIDATE
+Down/Up Ratio,CANDIDATE
+Average Packet Size,CANDIDATE
+Avg Fwd Segment Size,CANDIDATE
+Avg Bwd Segment Size,CANDIDATE
+Fwd Header Length.1,CANDIDATE
+Subflow Fwd Packets,CANDIDATE
+Subflow Fwd Bytes,CANDIDATE
+Subflow Bwd Packets,CANDIDATE
+Subflow Bwd Bytes,CANDIDATE
+Init_Win_bytes_forward,CANDIDATE
+Init_Win_bytes_backward,CANDIDATE
+act_data_pkt_fwd,CANDIDATE
+min_seg_size_forward,CANDIDATE
+Active Mean,CANDIDATE
+Active Std,CANDIDATE
+Active Max,CANDIDATE
+Active Min,CANDIDATE
+Idle Mean,CANDIDATE
+Idle Std,CANDIDATE
+Idle Max,CANDIDATE
+Idle Min,CANDIDATE

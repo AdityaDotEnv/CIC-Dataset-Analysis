@@ -1,0 +1,8 @@
+criterion,CIC-IDS2017,CIC-IDS2018,interpretation,2017_source,2018_source
+Total records,2830743.0,16233002,Larger datasets provide more observations but also increase storage and computational cost.,03_class_distribution/overall_class_distribution.csv,07_dataset_overview/dataset_summary.csv
+Traffic classes,15.0,16,"More represented classes can provide broader attack coverage, but rare classes still require separate evaluation.",03_class_distribution/overall_class_distribution.csv,07_dataset_overview/overall_class_distribution.csv
+Missing values (reported count),1358.0,59721.0,Lower missing-value burden generally reduces preprocessing complexity.,02_feature_data_quality/missing_value_summary.csv,08_feature_data_quality/missing_value_summary.csv
+Infinite values (reported count),4376.0,131799.0,Infinite values require explicit handling before most ML workflows.,02_feature_data_quality/infinite_value_summary.csv,08_feature_data_quality/infinite_value_summary.csv
+Duplicate groups,Not available from artifacts,Not available from artifacts,Duplicate prevalence affects independence of observations and must be considered during splitting.,02_feature_data_quality/duplicate_summary.csv (if present),08_feature_data_quality/duplicate_summary.csv
+Constant features,Not available from artifacts,0,Constant predictors carry no discriminative information and are candidates for removal during preprocessing.,02_feature_data_quality/constant_features.csv (if present),08_feature_data_quality/constant_features.csv
+High-correlation feature pairs,39.0,0,High correlation indicates feature redundancy and may motivate feature-selection decisions.,02_feature_data_quality/high_correlation_pairs.csv,08_feature_data_quality/high_correlation_pairs.csv

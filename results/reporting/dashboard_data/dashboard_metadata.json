@@ -1,0 +1,17 @@
+{
+  "results_root": "C:\\Coding Stuff\\CIC-Dataset-Analysis\\results",
+  "output_dir": "C:\\Coding Stuff\\CIC-Dataset-Analysis\\results\\reporting\\dashboard_data",
+  "exported_artifacts": 103,
+  "failed_artifacts": 0,
+  "categories": [
+    "class_analysis",
+    "dataset_comparison",
+    "dataset_quality",
+    "feature_analysis",
+    "final_decision",
+    "ml",
+    "preprocessing",
+    "supporting"
+  ],
+  "design": "artifact-driven; consumes notebook/result tables without reloading raw datasets"
+}

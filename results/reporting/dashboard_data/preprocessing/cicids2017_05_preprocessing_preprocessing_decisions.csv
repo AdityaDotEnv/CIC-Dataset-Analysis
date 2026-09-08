@@ -1,0 +1,11 @@
+issue,decision,stage
+Column whitespace,Normalize,Initial preprocessing
+Infinite values,Convert to NaN,Initial preprocessing
+Missing values,Impute,ML pipeline
+Constant features,Remove,Feature preprocessing
+Duplicate columns,Remove where identical,Feature preprocessing
+Highly correlated features,Review,Feature selection
+Duplicate rows,Investigate before final removal,Dataset preparation
+Suspicious negative values,Review,Data validation
+Class imbalance,Evaluate mitigation strategies,Model training
+Feature scaling,Model-dependent,ML pipeline

@@ -1,0 +1,15 @@
+metric,value
+total_records,2830743
+number_of_classes,15
+majority_class,BENIGN
+majority_count,2273097
+minority_class,Heartbleed
+minority_count,11
+overall_imbalance_ratio,206645.18181818182
+total_attack_records,557646
+number_of_attack_classes,14
+most_common_attack,DoS Hulk
+most_common_attack_count,231073
+rarest_attack,Heartbleed
+rarest_attack_count,11
+attack_imbalance_ratio,21006.636363636364

@@ -1,0 +1,15 @@
+parameter,value
+dataset,CIC-IDS2017
+target_column,Label
+label_mode,multiclass
+random_state,42
+replace_infinite_with_nan,True
+imputation,median_numeric_fit_on_train_only
+scaling,StandardScaler_fit_on_train_only
+remove_constant_features,True
+remove_duplicates,True
+oversampling,False
+undersampling,False
+primary_split,stratified train/validation/test
+split_ratios,"{""train"": 0.7, ""validation"": 0.15, ""test"": 0.15}"
+raw_data_modified,False

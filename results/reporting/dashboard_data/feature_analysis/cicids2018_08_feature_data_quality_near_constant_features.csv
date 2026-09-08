@@ -1,0 +1,71 @@
+feature,classification
+ACK Flag Cnt,two_or_fewer_observed_values
+Active Max,two_or_fewer_observed_values
+Active Mean,two_or_fewer_observed_values
+Active Min,two_or_fewer_observed_values
+Active Std,two_or_fewer_observed_values
+Bwd Header Len,two_or_fewer_observed_values
+Bwd IAT Max,two_or_fewer_observed_values
+Bwd IAT Mean,two_or_fewer_observed_values
+Bwd IAT Min,two_or_fewer_observed_values
+Bwd IAT Std,two_or_fewer_observed_values
+Bwd IAT Tot,two_or_fewer_observed_values
+Bwd Pkt Len Max,two_or_fewer_observed_values
+Bwd Pkt Len Mean,two_or_fewer_observed_values
+Bwd Pkt Len Min,two_or_fewer_observed_values
+Bwd Pkt Len Std,two_or_fewer_observed_values
+Bwd Pkts/s,two_or_fewer_observed_values
+Bwd Seg Size Avg,two_or_fewer_observed_values
+Down/Up Ratio,two_or_fewer_observed_values
+Dst Port,two_or_fewer_observed_values
+ECE Flag Cnt,two_or_fewer_observed_values
+FIN Flag Cnt,two_or_fewer_observed_values
+Flow Byts/s,two_or_fewer_observed_values
+Flow Duration,two_or_fewer_observed_values
+Flow IAT Max,two_or_fewer_observed_values
+Flow IAT Mean,two_or_fewer_observed_values
+Flow IAT Min,two_or_fewer_observed_values
+Flow IAT Std,two_or_fewer_observed_values
+Flow Pkts/s,two_or_fewer_observed_values
+Fwd Act Data Pkts,two_or_fewer_observed_values
+Fwd Header Len,two_or_fewer_observed_values
+Fwd IAT Max,two_or_fewer_observed_values
+Fwd IAT Mean,two_or_fewer_observed_values
+Fwd IAT Min,two_or_fewer_observed_values
+Fwd IAT Std,two_or_fewer_observed_values
+Fwd IAT Tot,two_or_fewer_observed_values
+Fwd PSH Flags,two_or_fewer_observed_values
+Fwd Pkt Len Max,two_or_fewer_observed_values
+Fwd Pkt Len Mean,two_or_fewer_observed_values
+Fwd Pkt Len Min,two_or_fewer_observed_values
+Fwd Pkt Len Std,two_or_fewer_observed_values
+Fwd Pkts/s,two_or_fewer_observed_values
+Fwd Seg Size Avg,two_or_fewer_observed_values
+Fwd Seg Size Min,two_or_fewer_observed_values
+Idle Max,two_or_fewer_observed_values
+Idle Mean,two_or_fewer_observed_values
+Idle Min,two_or_fewer_observed_values
+Idle Std,two_or_fewer_observed_values
+Init Bwd Win Byts,two_or_fewer_observed_values
+Init Fwd Win Byts,two_or_fewer_observed_values
+Label,two_or_fewer_observed_values
+PSH Flag Cnt,two_or_fewer_observed_values
+Pkt Len Max,two_or_fewer_observed_values
+Pkt Len Mean,two_or_fewer_observed_values
+Pkt Len Min,two_or_fewer_observed_values
+Pkt Len Std,two_or_fewer_observed_values
+Pkt Len Var,two_or_fewer_observed_values
+Pkt Size Avg,two_or_fewer_observed_values
+Protocol,two_or_fewer_observed_values
+RST Flag Cnt,two_or_fewer_observed_values
+SYN Flag Cnt,two_or_fewer_observed_values
+Subflow Bwd Byts,two_or_fewer_observed_values
+Subflow Bwd Pkts,two_or_fewer_observed_values
+Subflow Fwd Byts,two_or_fewer_observed_values
+Subflow Fwd Pkts,two_or_fewer_observed_values
+Timestamp,two_or_fewer_observed_values
+Tot Bwd Pkts,two_or_fewer_observed_values
+Tot Fwd Pkts,two_or_fewer_observed_values
+TotLen Bwd Pkts,two_or_fewer_observed_values
+TotLen Fwd Pkts,two_or_fewer_observed_values
+URG Flag Cnt,two_or_fewer_observed_values

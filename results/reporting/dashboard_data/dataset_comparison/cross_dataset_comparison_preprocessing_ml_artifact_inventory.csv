@@ -1,0 +1,14 @@
+dataset,artifact_stage,file,relative_path,size_bytes
+CIC-IDS2017,05_preprocessing,candidate_features.csv,candidate_features.csv,1946
+CIC-IDS2017,05_preprocessing,dropped_features.csv,dropped_features.csv,351
+CIC-IDS2017,05_preprocessing,preprocessing_decisions.csv,preprocessing_decisions.csv,555
+CIC-IDS2017,05_preprocessing,preprocessing_summary.csv,preprocessing_summary.csv,211
+CIC-IDS2017,05_preprocessing,suspicious_features.csv,suspicious_features.csv,192
+CIC-IDS2017,05_preprocessing,target_mapping.csv,target_mapping.csv,273
+CIC-IDS2017,06_ml_suitability,class_distribution_assessment.csv,class_distribution_assessment.csv,521
+CIC-IDS2017,06_ml_suitability,computational_feasibility_assessment.csv,computational_feasibility_assessment.csv,528
+CIC-IDS2017,06_ml_suitability,data_quality_assessment.csv,data_quality_assessment.csv,643
+CIC-IDS2017,06_ml_suitability,dataset_metrics.csv,dataset_metrics.csv,261
+CIC-IDS2017,06_ml_suitability,feature_suitability_assessment.csv,feature_suitability_assessment.csv,595
+CIC-IDS2017,06_ml_suitability,ml_suitability_scorecard.csv,ml_suitability_scorecard.csv,834
+CIC-IDS2018,11_preprocessing_feature_selection,preprocessing_plan.csv,preprocessing_plan.csv,621

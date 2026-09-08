@@ -1,0 +1,9 @@
+metric,value
+Original rows,2830743
+Original columns,81
+Numerical features,78
+Categorical features,2
+Constant features,8
+Features with infinite values,2
+Duplicate rows,308381
+Number of target classes,15

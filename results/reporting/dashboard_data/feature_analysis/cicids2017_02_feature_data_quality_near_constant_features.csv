@@ -1,0 +1,13 @@
+feature,dominant_value_frequency
+Bwd PSH Flags,1.0
+Fwd URG Flags,0.9998887217949493
+Bwd URG Flags,1.0
+RST Flag Count,0.9997576607978894
+CWE Flag Count,0.9998887217949493
+ECE Flag Count,0.9997566010054604
+Fwd Avg Bytes/Bulk,1.0
+Fwd Avg Packets/Bulk,1.0
+Fwd Avg Bulk Rate,1.0
+Bwd Avg Bytes/Bulk,1.0
+Bwd Avg Packets/Bulk,1.0
+Bwd Avg Bulk Rate,1.0

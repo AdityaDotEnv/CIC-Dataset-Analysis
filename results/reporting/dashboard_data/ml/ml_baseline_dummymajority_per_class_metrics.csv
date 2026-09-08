@@ -1,0 +1,16 @@
+model,label,precision,recall,f1-score,support
+DummyMajority,0,0.8030032194173019,1.0,0.8907396401397643,340964.0
+DummyMajority,1,0.0,0.0,0.0,295.0
+DummyMajority,2,0.0,0.0,0.0,19204.0
+DummyMajority,3,0.0,0.0,0.0,1544.0
+DummyMajority,4,0.0,0.0,0.0,34661.0
+DummyMajority,5,0.0,0.0,0.0,825.0
+DummyMajority,6,0.0,0.0,0.0,870.0
+DummyMajority,7,0.0,0.0,0.0,1190.0
+DummyMajority,8,0.0,0.0,0.0,2.0
+DummyMajority,9,0.0,0.0,0.0,6.0
+DummyMajority,10,0.0,0.0,0.0,23839.0
+DummyMajority,11,0.0,0.0,0.0,884.0
+DummyMajority,12,0.0,0.0,0.0,226.0
+DummyMajority,13,0.0,0.0,0.0,3.0
+DummyMajority,14,0.0,0.0,0.0,98.0

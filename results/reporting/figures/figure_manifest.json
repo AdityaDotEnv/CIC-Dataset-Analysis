@@ -1,0 +1,38 @@
+[
+  {
+    "figure": "model_comparison_macro_f1.png",
+    "source": "ml_baseline\\model_comparison.csv"
+  },
+  {
+    "figure": "model_comparison_macro_recall.png",
+    "source": "ml_baseline\\model_comparison.csv"
+  },
+  {
+    "figure": "model_comparison_balanced_accuracy.png",
+    "source": "ml_baseline\\model_comparison.csv"
+  },
+  {
+    "figure": "model_comparison_weighted_f1.png",
+    "source": "ml_baseline\\model_comparison.csv"
+  },
+  {
+    "figure": "final_per_class_f1.png",
+    "source": "final\\dashboard_data\\ml_per_class_metrics.csv"
+  },
+  {
+    "figure": "cicddos2019_17_class_distribution.png",
+    "source": "cicddos2019\\17_class_distribution.csv"
+  },
+  {
+    "figure": "cicddos2019_17_class_distribution_by_file.png",
+    "source": "cicddos2019\\17_class_distribution_by_file.csv"
+  },
+  {
+    "figure": "cicids2017_03_class_distribution_overall_class_distribution.png",
+    "source": "cicids2017\\03_class_distribution\\overall_class_distribution.csv"
+  },
+  {
+    "figure": "cicids2017_03_class_distribution_per_file_class_distribution.png",
+    "source": "cicids2017\\03_class_distribution\\per_file_class_distribution.csv"
+  }
+]

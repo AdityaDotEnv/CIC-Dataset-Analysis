@@ -1,0 +1,16 @@
+Label,files_present
+BENIGN,8
+Bot,1
+DDoS,1
+DoS GoldenEye,1
+DoS Hulk,1
+DoS Slowhttptest,1
+DoS slowloris,1
+FTP-Patator,1
+Heartbleed,1
+Infiltration,1
+PortScan,1
+SSH-Patator,1
+Web Attack � Brute Force,1
+Web Attack � Sql Injection,1
+Web Attack � XSS,1

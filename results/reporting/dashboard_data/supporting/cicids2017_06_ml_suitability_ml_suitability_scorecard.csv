@@ -1,0 +1,12 @@
+criterion,rating,assessment
+Data volume,Strong,Large number of observations available
+Feature availability,Strong,78 original numerical features
+Attack coverage,Moderate,14 attack categories represented
+Class balance,Weak,Strong multiclass and binary imbalance
+Rare-class representation,Weak,Several extremely rare attack classes
+Data quality,Moderate,Issues are present but largely manageable
+Feature redundancy,Moderate,Highly correlated features require review
+Preprocessing burden,Moderate,Multiple explicit preprocessing steps required
+Computational feasibility,Moderate,Large dataset requires memory-aware processing
+Leakage risk,Weak,Duplicates and capture-session concentration require careful splitting
+Overall ML suitability,Suitable with conditions,Viable if preprocessing and evaluation are carefully designed

@@ -1,0 +1,2 @@
+model,sample_rows,train_rows,test_rows,features,classes,accuracy,balanced_accuracy,macro_f1,weighted_f1
+RandomForest,1000000,800000,200000,69,15,0.998365,0.8164545262638166,0.8332781522250925,0.998326008258817

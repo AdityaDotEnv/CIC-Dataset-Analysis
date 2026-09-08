@@ -1,0 +1,17 @@
+label,02-14-2018.csv,02-15-2018.csv,02-16-2018.csv,02-20-2018.csv,02-21-2018.csv,02-22-2018.csv,02-23-2018.csv,02-28-2018.csv,03-01-2018.csv,03-02-2018.csv
+Benign,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+Bot,False,False,False,False,False,False,False,False,False,1.0
+Brute Force -Web,False,False,False,False,False,1.0,1.0,False,False,False
+Brute Force -XSS,False,False,False,False,False,1.0,1.0,False,False,False
+DDOS attack-HOIC,False,False,False,False,1.0,False,False,False,False,False
+DDOS attack-LOIC-UDP,False,False,False,False,1.0,False,False,False,False,False
+DDoS attacks-LOIC-HTTP,False,False,False,1.0,False,False,False,False,False,False
+DoS attacks-GoldenEye,False,1.0,False,False,False,False,False,False,False,False
+DoS attacks-Hulk,False,False,1.0,False,False,False,False,False,False,False
+DoS attacks-SlowHTTPTest,False,False,1.0,False,False,False,False,False,False,False
+DoS attacks-Slowloris,False,1.0,False,False,False,False,False,False,False,False
+FTP-BruteForce,1.0,False,False,False,False,False,False,False,False,False
+Infilteration,False,False,False,False,False,False,False,1.0,1.0,False
+Label,False,False,1.0,False,False,False,False,1.0,1.0,False
+SQL Injection,False,False,False,False,False,1.0,1.0,False,False,False
+SSH-Bruteforce,1.0,False,False,False,False,False,False,False,False,False

@@ -1,0 +1,40 @@
+feature_1,feature_2,correlation
+Total Fwd Packets,Subflow Fwd Packets,1.0
+Fwd PSH Flags,SYN Flag Count,1.0
+Fwd Header Length,Fwd Header Length.1,1.0
+Fwd URG Flags,CWE Flag Count,1.0
+Bwd Packet Length Mean,Avg Bwd Segment Size,1.0
+Fwd Packet Length Mean,Avg Fwd Segment Size,1.0
+Total Backward Packets,Subflow Bwd Packets,1.0
+Total Length of Bwd Packets,Subflow Bwd Bytes,0.9999998601345076
+Total Length of Fwd Packets,Subflow Fwd Bytes,0.9999993580552904
+Subflow Fwd Packets,Subflow Bwd Packets,0.9990699513708728
+Total Fwd Packets,Subflow Bwd Packets,0.9990699513708728
+Total Fwd Packets,Total Backward Packets,0.9990699513708728
+Total Backward Packets,Subflow Fwd Packets,0.9990699513708726
+Flow Duration,Fwd IAT Total,0.9985599326310316
+Flow IAT Max,Fwd IAT Max,0.9980843380304668
+RST Flag Count,ECE Flag Count,0.9978200279292048
+Packet Length Mean,Average Packet Size,0.9977896522977948
+Total Fwd Packets,Total Length of Bwd Packets,0.9969928007533868
+Total Length of Bwd Packets,Subflow Fwd Packets,0.9969928007533868
+Subflow Fwd Packets,Subflow Bwd Bytes,0.9969866573972532
+Total Fwd Packets,Subflow Bwd Bytes,0.9969866573972532
+Total Backward Packets,Total Length of Bwd Packets,0.9944292856837716
+Total Length of Bwd Packets,Subflow Bwd Packets,0.9944292856837716
+Total Backward Packets,Subflow Bwd Bytes,0.9944241078556112
+Subflow Bwd Packets,Subflow Bwd Bytes,0.9944241078556112
+Idle Mean,Idle Max,0.990386838347062
+Idle Mean,Idle Min,0.9902153860786644
+Flow IAT Max,Idle Max,0.9891858560815252
+Fwd IAT Max,Idle Max,0.9883578980142116
+Flow Packets/s,Fwd Packets/s,0.9875620650640272
+Max Packet Length,Packet Length Std,0.9844128255679238
+Bwd Packet Length Max,Bwd Packet Length Std,0.9827775231577413
+Flow IAT Max,Idle Mean,0.9797002431960358
+Fwd IAT Max,Idle Mean,0.9781106151982364
+Fwd Packet Length Max,Fwd Packet Length Std,0.9684135845691092
+Idle Max,Idle Min,0.9618115794061312
+Bwd Packet Length Max,Bwd Packet Length Mean,0.95902307814291
+Bwd Packet Length Max,Avg Bwd Segment Size,0.9590230781429038
+Flow IAT Max,Idle Min,0.9514846311867878

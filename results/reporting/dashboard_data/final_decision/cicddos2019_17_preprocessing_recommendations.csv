@@ -1,0 +1,11 @@
+step,operation,recommendation,reason
+1,Label normalization,Normalize label strings and map them to integer class IDs.,Provides a stable target representation.
+2,Infinite-value handling,Replace positive/negative infinity with NaN before imputation.,Most standard ML estimators cannot consume infinite values.
+3,Missing-value handling,Use a documented numeric imputation strategy after infinity replacement.,Ensures the feature matrix contains finite values.
+4,Duplicate handling,Investigate duplicates and remove or isolate them before model evaluation where appropriate.,Duplicate traffic can inflate apparent generalization performance.
+5,Constant-feature removal,Remove features identified as globally constant.,They provide no predictive variation.
+6,Correlation review,Review highly correlated feature pairs and remove redundancy when justified.,Can reduce dimensionality and improve interpretability.
+7,Scaling,Use standardization or robust scaling for scale-sensitive models.,Network-flow variables can have very different magnitudes.
+8,Tree-based baseline,Include a tree-based classifier as a baseline.,Tree models are less sensitive to feature scaling and can capture nonlinear relationships.
+9,Class-aware evaluation,"Report macro-F1, weighted-F1, per-class recall and confusion matrices.",Accuracy alone can hide poor minority-class detection.
+10,Dataset-specific interpretation,Treat CIC-DDoS2019 as a DDoS-focused benchmark rather than automatically selecting it as the general-purpose IDS dataset.,Its attack scope is narrower than a broad multiclass IDS benchmark.
