@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-import time
 from pathlib import Path
 
 import joblib
@@ -34,25 +33,6 @@ def main() -> int:
     out = args.output_dir
     out.mkdir(parents=True, exist_ok=True)
 
-    def is_lfs_pointer(path: Path) -> bool:
-        try:
-            return path.read_bytes()[:80].startswith(b"version https://git-lfs.github.com/spec/v1")
-        except OSError:
-            return False
-
-    required = ["feature_columns.json", "label_mapping.json", "train.parquet", "validation.parquet"]
-    missing = [name for name in required if not (data / name).exists()]
-    if missing:
-        raise FileNotFoundError(f"Missing processed artifacts: {missing}")
-
-    pointers = [name for name in required if is_lfs_pointer(data / name)]
-    if pointers:
-        raise RuntimeError(
-            "Processed artifacts are Git-LFS pointer files, not hydrated data: "
-            + ", ".join(pointers)
-            + ". Run `git lfs install` and `git lfs pull`, then rerun this script."
-        )
-
     features = json.loads((data / "feature_columns.json").read_text(encoding="utf-8"))
     label_mapping = json.loads((data / "label_mapping.json").read_text(encoding="utf-8"))
     train = pd.read_parquet(data / "train.parquet", columns=features + ["label"])
@@ -75,13 +55,10 @@ def main() -> int:
 
     for name, model in models.items():
         print(f"Training {name} ...")
-        started = time.perf_counter()
         model.fit(train[features], train["label"])
         pred = model.predict(val[features])
-        fit_seconds = time.perf_counter() - started
 
         row = classification_metrics(val["label"], pred)
-        row["fit_seconds"] = fit_seconds
         row["model"] = name
         comparison_rows.append(row)
 
@@ -96,16 +73,7 @@ def main() -> int:
 
     comparison = pd.DataFrame(comparison_rows).sort_values("macro_f1", ascending=False)
     comparison.to_csv(out / "model_comparison.csv", index=False)
-    best = comparison.iloc[0]
-    (out / "selected_baseline.json").write_text(
-        json.dumps({
-            "model": str(best["model"]),
-            "selection_metric": "validation_macro_f1",
-            "validation_macro_f1": float(best["macro_f1"]),
-        }, indent=2),
-        encoding="utf-8",
-    )
-    print(f"Baseline evaluation complete. Best validation macro-F1: {best['model']} ({best['macro_f1']:.4f})")
+    print(f"Baseline evaluation complete. Best validation macro-F1: {comparison.iloc[0]['model']} ({comparison.iloc[0]['macro_f1']:.4f})")
     return 0
 
 

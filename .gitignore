@@ -26,3 +26,6 @@ Thumbs.db
 
 # Generated Output
 results/*
+!results/reporting/
+results/reporting/*
+!results/reporting/CIC_Dataset_Analysis_Dashboard.html
